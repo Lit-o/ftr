@@ -1,4 +1,3 @@
-import logo from './assets/pictures/ftr.png';
 import './App.css';
 import Header from "./components/Header/header";
 import React from "react";
@@ -7,16 +6,17 @@ import ActionGraphicRepresentations from "./components/ActionGraphicRepresentati
 import GamerInterfaces from "./components/GamerInterfaces/GamerInterfaces";
 
 function App() {
-  return (
-    <div className="Main">
-      <Header />
-      <Nav />
-      <GamerInterfaces />
-      <ActionGraphicRepresentations />
-    </div>
-  );
+    return (
+        <div className="Main">
+            <Header/>
+            <div className="App_wrapper">
+                <Nav/>
+                <GamerInterfaces/>
+                <ActionGraphicRepresentations/>
+            </div>
+        </div>
+    );
 }
-
 
 
 export default App;

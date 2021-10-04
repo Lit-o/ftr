@@ -1,6 +1,8 @@
+import style from './GamerInterfaces.module.css'
+
 const GamerInterfaces = () => {
     return (
-        <div>
+        <div className={style.main}>
             <h1>Gamer Interfaces</h1>
             <p>Relax stuff</p>
             <button>Skateboarding</button>

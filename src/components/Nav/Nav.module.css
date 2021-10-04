@@ -1,0 +1,23 @@
+.nav {
+    width: 200px;
+    background-color: rgba(155, 155, 155, 0.4);
+}
+
+.nav ul {
+    padding: 20px;
+    list-style: none;
+}
+
+.nav li a {
+    display: block;
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #fff;
+    color: white;
+}
+
+.nav li a:hover {
+    background-color: #fff;
+    color: #333;
+}
