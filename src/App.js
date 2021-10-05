@@ -4,17 +4,20 @@ import React from "react";
 import Nav from "./components/Nav/Nav";
 import ActionGraphicRepresentations from "./components/ActionGraphicRepresentations/ActionGraphicRepresentations";
 import GamerInterfaces from "./components/GamerInterfaces/GamerInterfaces";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
     return (
-        <div className="Main">
-            <Header/>
-            <div className="App_wrapper">
-                <Nav/>
-                <GamerInterfaces/>
-                <ActionGraphicRepresentations/>
+        <BrowserRouter>
+            <div className="Main">
+                <Header/>
+                <div className="App_body_wrapper">
+                    <Nav/>
+                    <GamerInterfaces/>
+                    <ActionGraphicRepresentations/>
+                </div>
             </div>
-        </div>
+         </BrowserRouter>
     );
 }
 

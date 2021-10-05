@@ -1,25 +1,18 @@
 import style from './GamerInterfaces.module.css'
 import History from "./History/History";
 import Character from "./Character/Character";
+import {BrowserRouter, Route} from "react-router-dom";
+import Actions from "./Actions/Actions";
 
 const GamerInterfaces = () => {
     return (
         <div className={style.main}>
-            <h1>Gamer Interfaces</h1>
+            {/*<h1>Gamer Interfaces</h1>*/}
             <div className={style.flexCont}>
-                <History />
-                <Character />
-
-
-                <div >
-                    <p>Relax stuff</p>
-                    <button>Skateboarding</button>
-                    <button>Chilling on the roof</button>
-                    <button>Walking</button>
-                </div>
+                <Route component={Character} exact path="/character"/>
+                <Route component={Actions} exact path="/actions"/>
+                <Route component={History} exact path="/history"/>
             </div>
-
-
         </div>
     )
 }

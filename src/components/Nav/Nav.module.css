@@ -8,7 +8,8 @@
     list-style: none;
 }
 
-.nav li a {
+
+.link {
     display: block;
     width: 80%;
     padding: 10px;
@@ -17,7 +18,22 @@
     color: white;
 }
 
-.nav li a:hover {
+.link:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+}
+
+.link.active {
     background-color: #fff;
     color: #333;
 }
+
+.inProgress {
+    cursor: not-allowed;
+    background-color: rgba(255, 0, 0, 0.3);
+}
+.inProgress:hover {
+    background-color: rgba(255, 0, 0, 0.6);
+    color: #fff;
+}
+
