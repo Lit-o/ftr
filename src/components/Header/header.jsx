@@ -6,7 +6,7 @@ const Header = () => {
         <header className={style.App_header}>
             <img src={logo} className={style.App_logo} alt="logo"/>
             <p>
-                The journey begins
+                Future. The journey begins...
             </p>
         </header>
     )

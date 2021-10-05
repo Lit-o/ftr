@@ -1,11 +1,18 @@
 .main {
     padding: 20px;
-    background-color: rgba(155, 155, 155, 0.65);
+    background-color: rgba(30, 30, 30, 0.85);
     color: #fff;
 }
 
 h1 {
     margin-bottom: 20px;
     color: rgba(155, 155, 155, 0.75);
+}
 
+.flexCont {
+    display: flex;
+}
+
+.flexCont div {
+    margin-right: 40px;
 }
