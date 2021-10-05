@@ -1,0 +1,15 @@
+.main {
+    padding: 20px;
+    border: 2px solid aqua;
+    margin-bottom: 40px;
+}
+
+.main p {
+    padding-bottom: 10px;
+    border-bottom: 2px solid aqua;
+    margin-bottom: 5px;
+}
+
+.main button {
+    margin-right: 10px;
+}

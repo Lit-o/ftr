@@ -1,3 +1,9 @@
 .main {
-    background-color: #fff;
+    padding: 20px;
+    background-color: rgba(155, 155, 155, 0.65);
+    color: #fff;
+}
+
+h1 {
+    margin-bottom: 20px;
 }
