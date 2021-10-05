@@ -13,3 +13,11 @@
 .main button {
     margin-right: 10px;
 }
+
+.isFavourite {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid gold;
+    transform: rotate(45deg);
+}
