@@ -2,20 +2,8 @@ import style from './Character.module.css'
 
 
 const Character = (props) => {
-
-    let thoughtsData = [
-        {id: 1, thought: "I'm awake. Let's go!"},
-        {id: 2, thought: "Maybe do something?!!!!"},
-        {id: 3, thought: "I feel hungry. I should go to the grocery store or order a pizza"}
-    ]
-
-    // let thoughtsResult = thoughtsData.map((el) => {
-    //         return (
-    //             <p>{el.thought}</p>
-    //         )
-    //     }
-    // )
-    let thoughtsResult = thoughtsData.map((el) =>  <p id={el.id}>{el.thought}</p>)
+debugger;
+console.log(props)
 
     return (
         <div className={style.main}>
@@ -38,7 +26,7 @@ const Character = (props) => {
                     <button>Add thought</button>
                 </div>
                 <br/>
-                {thoughtsResult}
+                {props.thoughtsArray}
             </div>
         </div>
     )

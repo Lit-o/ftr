@@ -4,9 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// bll simulation
+let thoughtsData = [
+    {id: 1, thought: "I'm awake. Let's go!"},
+    {id: 2, thought: "Maybe do something?!!!!"},
+    {id: 2, thought: "Maybe do something?!!!!"},
+    {id: 3, thought: "I feel hungry. I should go to the grocery store or order a pizza"}
+]
+
+let thoughtsResult = thoughtsData.map((el) =>  <p id={el.id}>{el.thought}</p>)
+
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App data={thoughtsResult}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

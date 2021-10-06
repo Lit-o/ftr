@@ -6,14 +6,15 @@ import ActionGraphicRepresentations from "./components/ActionGraphicRepresentati
 import GamerInterfaces from "./components/GamerInterfaces/GamerInterfaces";
 import {BrowserRouter} from "react-router-dom";
 
-function App() {
+function App(props) {
+    // debugger;
     return (
         <BrowserRouter>
             <div className="Main">
                 <Header/>
                 <div className="App_body_wrapper">
                     <Nav/>
-                    <GamerInterfaces/>
+                    <GamerInterfaces dataToChar={props.data}/>
                     <ActionGraphicRepresentations/>
                 </div>
             </div>
