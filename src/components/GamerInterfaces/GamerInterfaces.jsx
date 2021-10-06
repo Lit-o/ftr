@@ -7,7 +7,7 @@ import Actions from "./Actions/Actions";
 const GamerInterfaces = () => {
     return (
         <div className={style.main}>
-            {/*<h1>Gamer Interfaces</h1>*/}
+            <h1 className="visuallyHidden">Gamer Interfaces</h1>
             <div className={style.flexCont}>
                 <Route component={Character} exact path="/character"/>
                 <Route component={Actions} exact path="/actions"/>

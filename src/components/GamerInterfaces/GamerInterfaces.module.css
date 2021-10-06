@@ -10,10 +10,11 @@ h1 {
 }
 
 .flexCont {
-    padding: 20px;
+    padding: 0px;
     display: flex;
 }
 
-.flexCont div {
+.flexCont > div {
+    padding: 20px;
     margin-right: 40px;
 }
