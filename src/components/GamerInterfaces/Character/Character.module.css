@@ -1,0 +1,40 @@
+.main > div {
+    width: 300px;
+    /*padding: 20px;*/
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #777;
+}
+
+.main h3 {
+    margin-bottom: 10px;
+}
+
+.main textarea {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.main button {
+    width: 100%;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid aqua;
+    background-color: inherit;
+}
+
+.main button:hover {
+    cursor: pointer;
+    border: 1px solid gold;
+}
+
+.main button:active {
+    cursor: pointer;
+    border: 1px solid gold;
+    background-color: gold;
+    color: #333;
+}

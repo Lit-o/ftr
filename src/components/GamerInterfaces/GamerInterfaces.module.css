@@ -16,5 +16,6 @@ h1 {
 
 .flexCont > div {
     padding: 20px;
+    padding-left: 40px;
     margin-right: 40px;
 }

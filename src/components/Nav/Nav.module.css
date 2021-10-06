@@ -1,46 +1,50 @@
 .nav {
     width: 200px;
-    background-color: rgba(155, 155, 155, 0.4);
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .nav ul {
     padding: 20px;
+    /*padding-right: 40px;*/
     list-style: none;
 }
 
 
 .link {
     display: block;
-    width: 80%;
+    /*width: 80%;*/
     padding: 10px;
-    margin-bottom: 15px;
-    border: 2px solid aqua;
+    padding-left: 20px;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+
+    border: 1px solid rgba(0,0,0,0);
+    border-left: 1px solid aqua;
     color: white;
+    transition: all 0.4s ease;
 }
 
 .link:hover {
-    border: 2px solid gold;
-
-    /*background-color: rgba(255, 255, 255, 0.7);*/
-    /*color: #333;*/
+    border: 1px solid gold;
 }
 
 .link.active {
     background-color: gold;
     color: #333;
-    border: 2px solid gold;
+    border: 1px solid gold;
 }
 
-.inProgress {
-    cursor: not-allowed;
-    background-color: rgba(255, 0, 0, 0.3);
-}
-.inProgress:hover {
-    background-color: rgba(255, 0, 0, 0.6);
-    color: #fff;
-}
+/*.inProgress {*/
+/*    cursor: not-allowed;*/
+/*    background-color: rgba(255, 0, 0, 0.3);*/
+/*}*/
+/*.inProgress:hover {*/
+/*    background-color: rgba(255, 0, 0, 0.6);*/
+/*    color: #fff;*/
+/*}*/
 
-.link.active.inProgress {
-    background-color: rgba(255, 0, 0, 0.8);
-    color: #fff;
-}
+/*.link.active.inProgress {*/
+/*    background-color: rgba(255, 0, 0, 0.8);*/
+/*    color: #fff;*/
+/*}*/
