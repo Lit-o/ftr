@@ -7,13 +7,12 @@ import Actions from "./Actions/Actions";
 
 
 const GamerInterfaces = (props) => {
-    let someComponent = () => <Character thoughtsArray={props.dataToChar}/>
-
+    let Char = () => <Character thoughtsArray={props.dataToChar} addThought={props.addThought}/>
     return (
         <div className={style.main}>
             <h1 className="visuallyHidden">Gamer Interfaces</h1>
             <div className={style.flexCont}>
-                <Route render={someComponent} exact path="/character"/>
+                <Route render={Char} exact path="/character"/>
                 <Route component={Actions} exact path="/actions"/>
                 <Route component={History} exact path="/history"/>
             </div>

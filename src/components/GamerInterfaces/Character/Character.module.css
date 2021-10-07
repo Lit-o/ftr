@@ -38,3 +38,23 @@
     background-color: gold;
     color: #333;
 }
+
+.charThoughts p {
+    position: relative;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.charThoughts p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: gold;
+}
