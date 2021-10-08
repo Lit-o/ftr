@@ -4,15 +4,15 @@ import React from "react";
 
 const Character = (props) => {
     let thoughtsResult = props.thoughtsArray.thoughts.map((el) =>  <p id={el.id}>{el.thought}</p>)
+    let thoughtsTextarea = React.createRef()
     let sendThought = () => {
         props.addThought();
     }
-    let thoughtsTextarea = React.createRef()
+
     let sendTextarea = () => {
         let text = thoughtsTextarea.current.value;
         props.changeTextarea(text);
     }
-    console.log(props)
 
     return (
         <div className={style.main}>

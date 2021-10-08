@@ -7,7 +7,10 @@ import Actions from "./Actions/Actions";
 
 
 const GamerInterfaces = (props) => {
-    let Char = () => <Character thoughtsArray={props.dataToChar} addThought={props.addThought} changeTextarea={props.changeTextarea}/>
+
+    let Char = () => <Character thoughtsArray={props.dataToChar}
+                                addThought={props.addThought}
+                                changeTextarea={props.changeTextarea}/>
     return (
         <div className={style.main}>
             <h1 className="visuallyHidden">Gamer Interfaces</h1>

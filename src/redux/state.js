@@ -1,44 +1,48 @@
 // bll simulation
 
-let rerenderTree = () => {}
+let store = {
 
-let state = {
-    thoughts: [
-        {id: 1, thought: "I'm awake."},
-        {id: 1, thought: "Let's go! Let's go! Let's go! Let's go! Let's go! Let's go!  Let's go! Let's go!"},
-        {id: 2, thought: "Maybe do something?"},
-        {id: 2, thought: "Maybe do something?!!!!"},
-        {id: 3, thought: "Feel good"}
-    ],
-    characteristics: {
-        agility : 7,
-        strength : 8,
-        intelligence: 7,
-        luck: 9
+    _state: {
+        characterPage : {
+            thoughts: [
+                {id: 1, thought: "Maybe I should think about something? Huh..."},
+            ],
+            characteristics: {
+                agility : 7,
+                strength : 8,
+                intelligence: 7,
+                luck: 9
+            },
+            textarea: 'lorem',
+        }
     },
-    textarea: 'lorem',
+
+    getState() {
+        return this._state;
+    },
+
+    _callSubscriber() {
+        console.log('tree update')
+    },
+
+    addThought() {
+        let newText = {
+            id: 4,
+            thought: this._state.characterPage.textarea
+        };
+        this._state.characterPage.thoughts.push(newText);
+        this._state.characterPage.textarea = '';
+        this._callSubscriber(this._state);
+    },
+
+    changeTextarea(symbol) {
+        this._state.characterPage.textarea = symbol;
+        this._callSubscriber(this._state);
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+    dispatch(action) {},
 }
-
-export const addThought = () => {
-  let newText = {
-      id: 4,
-      thought: state.textarea
-  };
-  state.thoughts.push(newText);
-  state.textarea = '';
-  console.log(state.thoughts);
-  rerenderTree();
-}
-
-export const changeTextarea = (symbol) => {
-    state.textarea = symbol;
-    rerenderTree();
-    console.log(state.textarea);
-
-}
-
-export const subscribe = (observer) => {
-    rerenderTree = observer;
-}
-
-export default state;
+window.store = store;
+export default store;

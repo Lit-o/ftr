@@ -6,13 +6,14 @@ import ActionGraphicRepresentations from "./components/ActionGraphicRepresentati
 import GamerInterfaces from "./components/GamerInterfaces/GamerInterfaces";
 
 function App(props) {
-    // debugger;
     return (
         <div className="Main">
             <Header/>
             <div className="App_body_wrapper">
                 <Nav/>
-                <GamerInterfaces dataToChar={props.appState} addThought={props.addThought} changeTextarea={props.changeTextarea}/>
+                <GamerInterfaces dataToChar={props.appState.characterPage}
+                                 addThought={props.addThought}
+                                 changeTextarea={props.changeTextarea}/>
                 <ActionGraphicRepresentations/>
             </div>
         </div>
