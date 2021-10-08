@@ -12,7 +12,7 @@ function App(props) {
             <Header/>
             <div className="App_body_wrapper">
                 <Nav/>
-                <GamerInterfaces dataToChar={props.appState} addThought={props.addThought}/>
+                <GamerInterfaces dataToChar={props.appState} addThought={props.addThought} changeTextarea={props.changeTextarea}/>
                 <ActionGraphicRepresentations/>
             </div>
         </div>

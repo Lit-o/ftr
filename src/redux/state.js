@@ -1,6 +1,6 @@
 // bll simulation
 
-import {rerenderTree} from "../render";
+let rerenderTree = () => {}
 
 let state = {
     thoughts: [
@@ -16,19 +16,29 @@ let state = {
         intelligence: 7,
         luck: 9
     },
+    textarea: 'lorem',
 }
 
-
-export let addThought = (text) => {
-
+export const addThought = () => {
   let newText = {
       id: 4,
-      thought: text
+      thought: state.textarea
   };
   state.thoughts.push(newText);
+  state.textarea = '';
   console.log(state.thoughts);
-  rerenderTree(state);
+  rerenderTree();
 }
 
+export const changeTextarea = (symbol) => {
+    state.textarea = symbol;
+    rerenderTree();
+    console.log(state.textarea);
+
+}
+
+export const subscribe = (observer) => {
+    rerenderTree = observer;
+}
 
 export default state;
