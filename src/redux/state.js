@@ -1,9 +1,7 @@
 // bll simulation
-const ADD_THOUGHT = 'ADD-THOUGHT';
-const CHANGE_TEXTAREA = 'CHANGE-TEXTAREA'
+import characterReducer from "./characterReducer";
 
 let store = {
-
     _state: {
         characterPage: {
             thoughts: [
@@ -30,25 +28,15 @@ let store = {
     subscribe(observer) {
         this._callSubscriber = observer;
     },
+
     dispatch(action) {
-        if (action.type === ADD_THOUGHT) {
-            let newText = {
-                id: 4,
-                thought: this._state.characterPage.textarea
-            };
-            this._state.characterPage.thoughts.push(newText);
-            this._state.characterPage.textarea = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === CHANGE_TEXTAREA) {
-            this._state.characterPage.textarea = action.symbol;
-            this._callSubscriber(this._state);
-        }
-    },
+        this._state.characterPage = characterReducer(this._state.characterPage, action);
+        // this._state.characterPage = characterReducer(this._state.characterPage, action);
+        // this._state.characterPage = characterReducer(this._state.characterPage, action);
+        this._callSubscriber(this._state);
+    }
 }
 
-export const addThoughtActionCreator = () => ({type: ADD_THOUGHT});
-export const changeTextareaActionCreator = (text) =>
-    ({type: CHANGE_TEXTAREA, symbol: text});
 
 
 window.store = store;

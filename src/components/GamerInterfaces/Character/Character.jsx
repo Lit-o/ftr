@@ -1,6 +1,6 @@
 import style from './Character.module.css'
 import React from "react";
-import {addThoughtActionCreator, changeTextareaActionCreator} from "../../../redux/state";
+import {addThoughtActionCreator, changeTextareaActionCreator} from "../../../redux/characterReducer";
 
 
 const Character = (props) => {
