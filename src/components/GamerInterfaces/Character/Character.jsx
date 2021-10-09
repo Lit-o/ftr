@@ -1,25 +1,19 @@
 import style from './Character.module.css'
 import React from "react";
+import {addThoughtActionCreator, changeTextareaActionCreator} from "../../../redux/state";
 
 
 const Character = (props) => {
-
     let thoughtsResult = props.thoughtsArray.thoughts.map((el) =>  <p id={el.id}>{el.thought}</p>)
     let thoughtsTextarea = React.createRef()
+
     let sendThought = () => {
-        let action = {
-            type: 'ADD-THOUGHT'
-        };
-        props.dispatch(action);
+        props.dispatch(addThoughtActionCreator());
     }
 
     let sendTextarea = () => {
         let text = thoughtsTextarea.current.value;
-        let action = {
-            type: 'CHANGE-TEXTAREA',
-            symbol: text
-        };
-        props.dispatch(action);
+        props.dispatch(changeTextareaActionCreator(text));
     }
 
     return (
