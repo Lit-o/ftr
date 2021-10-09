@@ -11,8 +11,7 @@ let rerenderTree = (state) => {
         <BrowserRouter>
             <React.StrictMode>
                 <App appState={state}
-                     addThought={store.addThought.bind(store)}
-                     changeTextarea={store.changeTextarea.bind(store)}
+                     dispatch={store.dispatch.bind(store)}
                 />
             </React.StrictMode>
         </BrowserRouter>,

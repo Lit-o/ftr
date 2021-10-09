@@ -25,24 +25,24 @@ let store = {
         console.log('tree update')
     },
 
-    addThought() {
-        let newText = {
-            id: 4,
-            thought: this._state.characterPage.textarea
-        };
-        this._state.characterPage.thoughts.push(newText);
-        this._state.characterPage.textarea = '';
-        this._callSubscriber(this._state);
-    },
-
-    changeTextarea(symbol) {
-        this._state.characterPage.textarea = symbol;
-        this._callSubscriber(this._state);
-    },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-    dispatch(action) {},
+    dispatch(action) {
+        if (action.type === 'ADD-THOUGHT') {
+            let newText = {
+                id: 4,
+                thought: this._state.characterPage.textarea
+            };
+            this._state.characterPage.thoughts.push(newText);
+            this._state.characterPage.textarea = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'CHANGE-TEXTAREA') {
+            this._state.characterPage.textarea = action.symbol;
+            this._callSubscriber(this._state);
+        }
+    },
 }
+
 window.store = store;
 export default store;

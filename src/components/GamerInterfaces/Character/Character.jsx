@@ -3,15 +3,23 @@ import React from "react";
 
 
 const Character = (props) => {
+
     let thoughtsResult = props.thoughtsArray.thoughts.map((el) =>  <p id={el.id}>{el.thought}</p>)
     let thoughtsTextarea = React.createRef()
     let sendThought = () => {
-        props.addThought();
+        let action = {
+            type: 'ADD-THOUGHT'
+        };
+        props.dispatch(action);
     }
 
     let sendTextarea = () => {
         let text = thoughtsTextarea.current.value;
-        props.changeTextarea(text);
+        let action = {
+            type: 'CHANGE-TEXTAREA',
+            symbol: text
+        };
+        props.dispatch(action);
     }
 
     return (
@@ -32,7 +40,7 @@ const Character = (props) => {
                 <div>
                     <textarea name="" ref={thoughtsTextarea} value={props.thoughtsArray.textarea} onChange={sendTextarea}/>
                     <br/>
-                    <button onClick={sendThought}>Add thought</button>
+                    <button onClick={sendThought} data-tooltip='Come on! Click it!!!' className={style.addThought}>Add thought</button>
                 </div>
                 <br/>
                 {thoughtsResult}

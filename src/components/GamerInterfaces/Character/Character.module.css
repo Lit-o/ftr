@@ -58,3 +58,23 @@
     border-radius: 50%;
     background-color: gold;
 }
+.addThought[data-tooltip] {
+    position: relative;
+}
+.addThought[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background-color: gold;
+    color: #333;
+    opacity: 0;
+    transition: all 0.4s ease;
+
+    pointer-events: none;
+/*  pointer-events: none; запрещает потомку реагировать на ховер, только родитель будет отвечать за наведение*/
+}
+.addThought[data-tooltip]:hover::after {
+    opacity: 1;
+    right: -40px;
+}
