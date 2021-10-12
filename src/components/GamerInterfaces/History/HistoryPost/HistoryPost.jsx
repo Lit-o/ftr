@@ -4,7 +4,7 @@ const HistoryPost = (props) => {
     return (
         <div className={style.main}>
             <time>{props.time}</time>
-            <p>{props.message}</p>
+            <p>{props.story}</p>
             {/*<button>Special Mark for this story</button>*/}
             <div className={style.favouritesSection}>
                 <button>Add to favourites</button>

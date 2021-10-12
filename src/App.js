@@ -6,7 +6,6 @@ import ActionGraphicRepresentations from "./components/ActionGraphicRepresentati
 import GamerInterfaces from "./components/GamerInterfaces/GamerInterfaces";
 
 function App(props) {
-    debugger
     return (
         <div className="Main">
             <Header/>
