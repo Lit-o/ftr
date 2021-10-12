@@ -1,19 +1,19 @@
 import style from './Character.module.css'
 import React from "react";
-import {addThoughtActionCreator, changeTextareaActionCreator} from "../../../redux/characterReducer";
 
 
 const Character = (props) => {
-    let thoughtsResult = props.thoughtsArray.thoughts.map((el) =>  <p id={el.id}>{el.thought}</p>)
+    debugger;
+    let thoughtsResult = props.dataToCharacter.thoughts.map((el) =>  <p id={el.id}>{el.thought}</p>)
     let thoughtsTextarea = React.createRef()
 
     let sendThought = () => {
-        props.dispatch(addThoughtActionCreator());
+        props.sendThought()
     }
 
     let sendTextarea = () => {
         let text = thoughtsTextarea.current.value;
-        props.dispatch(changeTextareaActionCreator(text));
+        props.changeTextarea(text);
     }
 
     return (
@@ -23,16 +23,16 @@ const Character = (props) => {
 
             <div className={style.charAttributes}>
                 <h3>Character attributes</h3>
-                <p>Agility : {props.thoughtsArray.characteristics.agility} </p>
-                <p>Strength : {props.thoughtsArray.characteristics.strength} </p>
-                <p>Intelligence: {props.thoughtsArray.characteristics.intelligence} </p>
-                <p>Luck : {props.thoughtsArray.characteristics.luck} </p>
+                <p>Agility : {props.dataToCharacter.characteristics.agility} </p>
+                <p>Strength : {props.dataToCharacter.characteristics.strength} </p>
+                <p>Intelligence: {props.dataToCharacter.characteristics.intelligence} </p>
+                <p>Luck : {props.dataToCharacter.characteristics.luck} </p>
             </div>
 
             <div className={style.charThoughts}>
                 <h3>My thoughts:</h3>
                 <div>
-                    <textarea name="" ref={thoughtsTextarea} value={props.thoughtsArray.textarea} onChange={sendTextarea}/>
+                    <textarea name="" ref={thoughtsTextarea} value={props.dataToCharacter.textarea} onChange={sendTextarea}/>
                     <br/>
                     <button onClick={sendThought} data-tooltip='Come on! Click it!!!' className={style.addThought}>Add thought</button>
                 </div>

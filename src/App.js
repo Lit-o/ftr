@@ -11,8 +11,7 @@ function App(props) {
             <Header/>
             <div className="App_body_wrapper">
                 <Nav/>
-                <GamerInterfaces dataToChar={props.appState.characterPage}
-                                 dispatch={props.dispatch}/>
+                <GamerInterfaces store={props.store}/>
                 <ActionGraphicRepresentations/>
             </div>
         </div>
