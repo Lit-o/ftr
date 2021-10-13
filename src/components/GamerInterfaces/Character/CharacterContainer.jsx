@@ -1,22 +1,26 @@
 import React from "react";
 import {addThoughtActionCreator, changeTextareaActionCreator} from "../../../redux/characterReducer";
 import Character from "./Character";
+import {connect} from "react-redux";
 
 
-const CharacterContainer = (props) => {
-    let state = props.store.getState().characterPage;
-
-    let sendThought = () => {
-        props.store.dispatch(addThoughtActionCreator());
+let mapStateToProps = (state) => {
+    return {
+        dataToCharacter: state.characterPage
     }
-
-    let changeTextarea = (text) => {
-        props.store.dispatch(changeTextareaActionCreator(text));
-    }
-
-    return (
-        <Character sendThought={sendThought}  changeTextarea={changeTextarea} dataToCharacter={state}/>
-    )
 }
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        sendThought: () => {
+            dispatch(addThoughtActionCreator())
+        },
+        changeTextarea: (text) => {
+            dispatch(changeTextareaActionCreator(text))
+        }
+    }
+}
+
+const CharacterContainer = connect(mapStateToProps, mapDispatchToProps)(Character)
 
 export default CharacterContainer;

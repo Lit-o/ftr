@@ -3,7 +3,6 @@ import React from "react";
 
 
 const Character = (props) => {
-    debugger;
     let thoughtsResult = props.dataToCharacter.thoughts.map((el) =>  <p id={el.id}>{el.thought}</p>)
     let thoughtsTextarea = React.createRef()
 

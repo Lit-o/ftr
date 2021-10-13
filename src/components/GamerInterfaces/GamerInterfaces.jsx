@@ -8,7 +8,7 @@ import CharacterContainer from "./Character/CharacterContainer";
 
 const GamerInterfaces = (props) => {
 
-    let Character = () => <CharacterContainer store={props.store}/>
+    let Character = () => <CharacterContainer/>
     return (
         <div className={style.main}>
             <h1 className="visuallyHidden">Gamer Interfaces</h1>
