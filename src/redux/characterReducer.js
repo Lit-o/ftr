@@ -20,17 +20,22 @@ let initialState = {
 
 const characterReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_THOUGHT:
+        case ADD_THOUGHT: {
             let newText = {
                 id: 4,
                 thought: state.textarea
             };
-            state.thoughts.push(newText);
-            state.textarea = '';
-            return state;
+
+            let stateCopy = {...state}
+            stateCopy.thoughts = [...state.thoughts]
+            stateCopy.thoughts.push(newText);
+            stateCopy.textarea = '';
+            return stateCopy;
+        }
         case CHANGE_TEXTAREA :
-            state.textarea = action.symbol;
-            return state;
+            let stateCopy = {...state};
+            stateCopy.textarea = action.symbol;
+            return stateCopy;
         default:
             return state;
     }
