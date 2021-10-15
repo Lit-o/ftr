@@ -1,19 +1,6 @@
 import style from './Character.module.css'
 import React from "react";
 
-
-
-let a = {
-    a1: 'some',
-    a2: 'somemore',
-    a3: {
-        aa1: 'nameDefault'
-    }
-};
-
-let b = a;
-
-
 const Character = (props) => {
     let thoughtsResult = props.dataToCharacter.thoughts.map((el) =>  <p id={el.id}>{el.thought}</p>)
     let thoughtsTextarea = React.createRef()
