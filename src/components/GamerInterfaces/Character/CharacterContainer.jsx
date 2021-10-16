@@ -1,4 +1,3 @@
-import React from "react";
 import {addThoughtActionCreator, changeTextareaActionCreator} from "../../../redux/characterReducer";
 import Character from "./Character";
 import {connect} from "react-redux";
