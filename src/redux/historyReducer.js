@@ -10,6 +10,14 @@ let initialState = {
             time: '08:00 -> 08:42 ',
             date: '01.05.2255'
         },
+        {
+            id: 1,
+            isFavourite: true,
+            sharelinkURL: 0,
+            story: "What a Heck?! Someone was shooting on the street and a stray bullet smashed my window. It's good that the bullet didn't hit me. My insurance won't cover that.",
+            time: '09:16 -> 09:17 ',
+            date: '01.05.2255'
+        },
     ]
 }
 
