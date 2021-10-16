@@ -10,10 +10,14 @@ let initialState = {
         {id: 0, key: 0, thought: "Maybe I should think about something? Huh..."},
     ],
     characteristics: {
-        agility: 7,
-        strength: 8,
-        intelligence: 7,
-        luck: 9
+        agility: 1,
+        strength: 1,
+        intelligence: 1,
+        freeCharPoints: 5
+    },
+    HP: {
+        capacityHP: 10,
+        currentHP: 7
     },
     textarea: 'lorem',
 }
@@ -39,20 +43,19 @@ const characterReducer = (state = initialState, action) => {
             // let stateCopy = {
             //     ...state,
             //     thoughts: [...state.thoughts]
-            // }
+            // } return stateCopy;
             // stateCopy.thoughts.push(newText);
             // stateCopy.textarea = ''; Эта запись равна той,
             // что ниже, пуш заменили на запятую в спрет операторе
 
-            let stateCopy = {
+            return {
                 ...state,   // ...state.thoughts копирует
                 // элементы массива, после запятой добавляет новый элемент newText,
                 // если запятую поставить перед копированием массива,
                 // то сможем элемент добавить перед основным телом массива
                 thoughts: [...state.thoughts, newText],
                 textarea: ''
-            }
-            return stateCopy;
+            };
         }
         case CHANGE_TEXTAREA :
             return {

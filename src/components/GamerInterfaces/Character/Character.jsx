@@ -2,7 +2,6 @@ import style from './Character.module.css'
 import React from "react";
 
 const Character = (props) => {
-    debugger;
     let thoughtsResult = props.dataToCharacter.thoughts.map((el) =>  <p id={el.id} key={el.key}>{el.thought}</p>)
     let thoughtsTextarea = React.createRef()
 
@@ -18,6 +17,11 @@ const Character = (props) => {
         props.changeTextarea(text);
     }
 
+    const aquaStyle = {
+        fontWeight: 700,
+        paddingTop: '10px',
+    };
+
     return (
         <div className={style.main}>
             <h2>Character</h2>
@@ -26,8 +30,14 @@ const Character = (props) => {
                 <p>Agility : {props.dataToCharacter.characteristics.agility} </p>
                 <p>Strength : {props.dataToCharacter.characteristics.strength} </p>
                 <p>Intelligence: {props.dataToCharacter.characteristics.intelligence} </p>
-                <p>Luck : {props.dataToCharacter.characteristics.luck} </p>
+                <p style={aquaStyle}>Free Char Points : {props.dataToCharacter.characteristics.freeCharPoints} </p>
             </div>
+
+            <div className={style.hitPoints}>
+                <p>Hit Points Capacity: {props.dataToCharacter.HP.capacityHP}</p>
+                <p>Current Hit Points: {props.dataToCharacter.HP.currentHP}</p>
+            </div>
+
             <div className={style.charThoughts}>
                 <h3>My thoughts:</h3>
                 <div>

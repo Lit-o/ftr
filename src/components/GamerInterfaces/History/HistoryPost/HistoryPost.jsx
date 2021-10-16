@@ -11,7 +11,6 @@ const HistoryPost = (props) => {
             {/*<button>Special Mark for this story</button>*/}
             <div className={style.favouritesSection}>
                 <button className={style.isFavourite} data-tooltip='Add to Favourite stories'/>
-
                 <button className={style.isSharing} data-tooltip='Share this story'/>
             </div>
 
