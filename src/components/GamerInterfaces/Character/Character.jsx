@@ -9,17 +9,17 @@ const Character = (props) => {
         props.sendThought()
     }
 
-    let sendTextarea = () => {
-        let text = thoughtsTextarea.current.value;
+    let sendTextarea = (e) => {
+        // let text = thoughtsTextarea.current.value;
+        // --- отказываемся от ref thoughtsTextarea в пользу e (event)
+        // ref всегда лучше избегать, сам Реакт об этом говорит
+        let text = e.target.value;
         props.changeTextarea(text);
     }
 
-
     return (
         <div className={style.main}>
-
             <h2>Character</h2>
-
             <div className={style.charAttributes}>
                 <h3>Character attributes</h3>
                 <p>Agility : {props.dataToCharacter.characteristics.agility} </p>
@@ -27,7 +27,6 @@ const Character = (props) => {
                 <p>Intelligence: {props.dataToCharacter.characteristics.intelligence} </p>
                 <p>Luck : {props.dataToCharacter.characteristics.luck} </p>
             </div>
-
             <div className={style.charThoughts}>
                 <h3>My thoughts:</h3>
                 <div>
