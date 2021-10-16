@@ -27,8 +27,20 @@ const characterReducer = (state = initialState, action) => {
                 thought: state.textarea,
             };
 
-            let stateCopy = {...state}
-            stateCopy.thoughts = [...state.thoughts]
+            // глубокое копирование
+            // let stateCopy = {...state}
+            // stateCopy.thoughts = [...state.thoughts]
+            // Это можно описать строками ниже.
+            // Сначала спредим общий стейт,
+            // а потом уточняем, что нужно перезатереть, оверайдим, перезаписываем, переопределяем.
+            // Копируем только то, что планируем изменить. Вот у нас есть объекты в массиве thoughts,
+            // но мы их менять не планируем, планируем только добавлять новые,
+            // значит и копировать существующие объекты в этом кейсе не нужно
+
+            let stateCopy = {
+                ...state,
+                thoughts: [...state.thoughts]
+            }
             stateCopy.thoughts.push(newText);
             stateCopy.textarea = '';
             return stateCopy;
@@ -38,6 +50,7 @@ const characterReducer = (state = initialState, action) => {
             let stateCopy = {...state};
             stateCopy.textarea = action.symbol;
             return stateCopy;
+
         default:
             return state;
     }
