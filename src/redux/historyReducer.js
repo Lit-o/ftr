@@ -11,7 +11,14 @@ let initialState = {
 }
 
 const historyReducer = (state = initialState, action) => {
-    return state;
+    switch (action.type) {
+        case ADD_HISTORY :
+            let stateCopy = {...state};
+            stateCopy.textarea = action.symbol;
+            return stateCopy;
+        default:
+            return state;
+    }
 };
 
 export default historyReducer;

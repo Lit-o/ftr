@@ -14,6 +14,7 @@ const Character = (props) => {
         props.changeTextarea(text);
     }
 
+
     return (
         <div className={style.main}>
 
