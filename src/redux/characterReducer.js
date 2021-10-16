@@ -22,8 +22,8 @@ const characterReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_THOUGHT: {
             let newText = {
-                id: (state.thoughts.length - 1) + 1,
-                key: (state.thoughts.length - 1) + 1,
+                id: (state.thoughts[state.thoughts.length - 1].id) + 1,
+                key: (state.thoughts[state.thoughts.length - 1].key) + 1,
                 thought: state.textarea,
             };
 
@@ -33,6 +33,7 @@ const characterReducer = (state = initialState, action) => {
             stateCopy.textarea = '';
             return stateCopy;
         }
+
         case CHANGE_TEXTAREA :
             let stateCopy = {...state};
             stateCopy.textarea = action.symbol;
