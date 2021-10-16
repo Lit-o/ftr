@@ -2,6 +2,7 @@ import style from './Character.module.css'
 import React from "react";
 
 const Character = (props) => {
+    debugger;
     let thoughtsResult = props.dataToCharacter.thoughts.map((el) =>  <p id={el.id} key={el.key}>{el.thought}</p>)
     let thoughtsTextarea = React.createRef()
 

@@ -54,15 +54,11 @@ const characterReducer = (state = initialState, action) => {
             }
             return stateCopy;
         }
-
         case CHANGE_TEXTAREA :
-            let stateCopy = {
+            return {
                 ...state,
                 textarea: action.symbol
             };
-            // stateCopy.textarea = action.symbol;
-            return stateCopy;
-
         default:
             return state;
     }

@@ -5,9 +5,20 @@
 }
 
 .main p {
-    padding-bottom: 10px;
-    border-bottom: 2px solid aqua;
-    margin-bottom: 5px;
+    max-width: 300px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #777;
+    margin-bottom: 15px;
+}
+
+.main time {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 5px;
+
+    font-size: 12px;
+    border: 1px solid gold;
 }
 
 .main button {
@@ -16,8 +27,88 @@
 
 .isFavourite {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     border: 2px solid gold;
+    background-color: transparent;
     transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.isFavourite[data-tooltip] {
+    position: relative;
+}
+.isFavourite[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    transform: rotate(-45deg);
+    top: -70px;
+    right: -50px;
+    width: 120px;
+    padding: 5px;
+    background-color: gold;
+    color: #333;
+    opacity: 0;
+    transition: all 0.4s ease;
+
+    pointer-events: none;
+    /*  pointer-events: none; запрещает потомку реагировать на ховер, только родитель будет отвечать за наведение*/
+}
+.isFavourite[data-tooltip]:hover::after {
+    opacity: 1;
+    top: -80px;
+    right: -60px;
+}
+
+
+.isSharing {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 26px;
+    margin-left: 10px;
+    border: 2px solid gold;
+    border-right: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.isSharing[data-tooltip] {
+    position: relative;
+}
+
+.isSharing::before {
+    content: '';
+    position: absolute;
+    right: -9px;
+    top: 2px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    transform: rotate(45deg);
+
+    border: 2px solid gold;
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.isSharing[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30px;
+    right: -50px;
+    width: 120px;
+    padding: 5px;
+    background-color: gold;
+    color: #333;
+    opacity: 0;
+    transition: all 0.4s ease;
+
+    pointer-events: none;
+    /*  pointer-events: none; запрещает потомку реагировать на ховер, только родитель будет отвечать за наведение*/
+}
+.isSharing[data-tooltip]:hover::after {
+    opacity: 1;
+    top: -40px;
+    right: -60px;
 }
