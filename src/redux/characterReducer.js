@@ -7,7 +7,7 @@ export const changeTextareaActionCreator = (text) =>
 
 let initialState = {
         thoughts: [
-            {id: 0, thought: "Maybe I should think about something? Huh..."},
+            {id: 0, key: 0, thought: "Maybe I should think about something? Huh..."},
         ],
         characteristics: {
             agility: 7,
@@ -22,8 +22,9 @@ const characterReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_THOUGHT: {
             let newText = {
-                id: 4,
-                thought: state.textarea
+                id: (state.thoughts.length - 1) + 1,
+                key: (state.thoughts.length - 1) + 1,
+                thought: state.textarea,
             };
 
             let stateCopy = {...state}
