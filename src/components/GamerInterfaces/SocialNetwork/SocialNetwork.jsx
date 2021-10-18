@@ -3,6 +3,27 @@ import style from "./SocialNetwork.module.css"
 
 const SocialNetwork = (props) => {
 
+    if (props.users.length === 0) {
+        props.setUsers([
+            {
+                id: 0,
+                name: 'Zero-User',
+                status: 'Access denied',
+                isHaveJob: false,
+                isMarked: false,
+                avaURL: 'https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_120dp.png'
+            },
+            {
+                id: 1,
+                name: 'First-User',
+                status: 'Workers required',
+                isHaveJob: true,
+                isMarked: true,
+                avaURL: 'https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_120dp.png'
+            },
+        ])
+    }
+
     let setUsers = props.users.map(u => {
         let unmark = () => {props.unmark(u.id)};
         let mark = () => {props.mark(u.id)};

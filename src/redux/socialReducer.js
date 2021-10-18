@@ -3,10 +3,7 @@ const UNMARK = 'UNMARK';
 const SET_USERS = 'SET-USERS';
 
 let initialState = {
-    users: [
-        {id: 0, name: 'Zero-User', status: 'Access denied', isHaveJob: false, isMarked: false, avaURL: 'https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_120dp.png'},
-        {id: 1, name: 'First-User', status: 'Workers required', isHaveJob: true, isMarked: true, avaURL: 'https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_120dp.png'},
-    ],
+    users: [],
 }
 
 const socialReducer = (state = initialState, action) => {
