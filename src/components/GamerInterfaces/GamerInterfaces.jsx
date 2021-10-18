@@ -3,7 +3,7 @@ import {Route} from "react-router-dom";
 import Actions from "./Actions/Actions";
 import CharacterContainer from "./Character/CharacterContainer";
 import HistoryContainer from "./History/HistoryContainer";
-import SocialNetwork from "./SocialNetwork/SocialNetwork";
+import SocialNetworkContainer from "./SocialNetwork/SocialNetworkContainer";
 
 
 
@@ -11,7 +11,7 @@ const GamerInterfaces = () => {
 
     let Character = () => <CharacterContainer/>
     let History = () => <HistoryContainer/>
-    let Social = () => <SocialNetwork/>
+    let Social = () => <SocialNetworkContainer/>
 
     return (
         <div className={style.main}>
