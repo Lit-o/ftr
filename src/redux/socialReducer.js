@@ -4,8 +4,8 @@ const SET_USERS = 'SET-USERS';
 
 let initialState = {
     users: [
-        {id: 0, name: 'Zero-User', status: 'Access denied', isHaveJob: false, mark: false},
-        {id: 1, name: 'First-User', status: 'Workers required', isHaveJob: true, mark: true},
+        {id: 0, name: 'Zero-User', status: 'Access denied', isHaveJob: false, isMarked: false, avaURL: 'https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_120dp.png'},
+        {id: 1, name: 'First-User', status: 'Workers required', isHaveJob: true, isMarked: true, avaURL: 'https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_120dp.png'},
     ],
 }
 
@@ -19,7 +19,7 @@ const socialReducer = (state = initialState, action) => {
                 // объекта ...u и меняем в нем ,mark: true
                 users: state.users.map(u => {
                     if(u.id === action.userId) {
-                        return {...u, mark: true}
+                        return {...u, isMarked: true}
                     }
                     return u
                 })
@@ -30,7 +30,7 @@ const socialReducer = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if(u.id === action.userId) {
-                        return {...u, mark: false}
+                        return {...u, isMarked: false}
                     }
                     return u
                 })
