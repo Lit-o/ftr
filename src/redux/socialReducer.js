@@ -5,6 +5,14 @@ const SET_USERS = 'SET-USERS';
 let initialState = {
     users: [],
 }
+//         {
+//             id: 0,
+//             name: 'Zero-User',
+//             status: 'Access denied',
+//             isHaveJob: false,
+//             isMarked: false,
+//             avaURL: null
+//         },
 
 const socialReducer = (state = initialState, action) => {
     switch (action.type) {
