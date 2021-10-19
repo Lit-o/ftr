@@ -1,6 +1,6 @@
 import SocialNetwork from "./SocialNetwork";
 import {connect} from "react-redux";
-import {markAC, setUsersAC, unmarkAC} from "../../../redux/socialReducer";
+import {markAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unmarkAC} from "../../../redux/socialReducer";
 
 let mapStateToProps = (state) => {
     return {
@@ -21,6 +21,12 @@ let mapDispatchToProps = (dispatch) => {
         },
         setUsers: (users) => {
             dispatch(setUsersAC(users))
+        },
+        setUsersCount: (usersCount) => {
+            dispatch(setTotalUsersCountAC(usersCount))
+        },
+        setCurrentPage: (currentPage) => {
+            dispatch(setCurrentPageAC(currentPage))
         }
     }
 }

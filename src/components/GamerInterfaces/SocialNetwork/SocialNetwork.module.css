@@ -13,6 +13,20 @@
     height: 50px;
 }
 
-.pageSelected {
+.pagination {
+    margin-bottom: 20px;
+}
+
+.pagination span {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid aqua;
+    cursor: pointer;
+}
+
+span.pageSelected{
     font-weight: 700;
+    border: 1px solid gold;
+    background-color: gold;
+    color: #333;
 }

@@ -3,7 +3,6 @@ import style from "./SocialNetwork.module.css"
 import * as axios from "axios";
 
 
-// if (props.users.length === 0) {
 //     props.setUsers([
 //         {
 //             id: 0,
@@ -13,16 +12,7 @@ import * as axios from "axios";
 //             isMarked: false,
 //             avaURL: null
 //         },
-//         {
-//             id: 1,
-//             name: 'First-User',
-//             status: 'Workers required',
-//             isHaveJob: true,
-//             isMarked: true,
-//             avaURL: null
-//         },
 //     ])
-// }
 
 
 class SocialNetwork extends React.Component {
@@ -36,14 +26,33 @@ class SocialNetwork extends React.Component {
     //     super(props);
     // }
 
+    //обращаемся к, и дополняем метод componentDidMount своими инструкциями
+
     componentDidMount() {
+        let countRequest = "count=" + this.props.pageSize;
+        let pageRequest = "page=" + this.props.currentPage;
         if (this.props.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users?" + countRequest + "&" + pageRequest).then(response => {
                 this.props.setUsers(response.data.items);
             });
         }
-        alert('new');
+        ;
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            this.props.setUsersCount(response.data.totalCount)
+        });
     }
+
+    // Создаем свой метод на клик по страничкам
+    onPagesClick = (page) => {
+        this.props.setCurrentPage(page);
+
+        let countRequest = "count=" + this.props.pageSize;
+        let pageRequest = "page=" + page; // здесь берем page тк setCurrentPage еще не долетел до стора, а мы уже делаем запрос
+        axios.get("https://social-network.samuraijs.com/api/1.0/users?" + countRequest + "&" + pageRequest).then(response => {
+            this.props.setUsers(response.data.items);
+        });
+    }
+
 
     render() {
         let setUsers = this.props.users.map(u => {
@@ -67,16 +76,20 @@ class SocialNetwork extends React.Component {
             )
         })
 
-        // создаем массив, с помощью цикла for и метода push высчитав pagesCount,
+        // создаем массив, с помощью цикла for и метода push высчитав
+        // pagesCount (округляем в большую сторону деление Math.ceil,
+        // чтобы не потерять "неполную страничку"),
         // потом уже в рендере создаем массив с разметкой используя map()
-        let pagesCount = this.props.totalUsersCount / this.props.pageSize;
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
         let pages = [];
-        for (let i = 1; i <= pagesCount && i <= 15; i++) {
+        for (let i = 1; i <= pagesCount && i <= 10; i++) {
             pages.push(i)
         }
-        let onPagesClick = () => {
-            alert('Wanna changes?')
-        }
+
+        // let onPagesClick = (e) => {
+        //     let currentPage = Number(e.target.textContent);
+        //     this.props.setCurrentPage(currentPage);
+        // }
 
         let setPages = pages.map(page => {
             return (
@@ -84,13 +97,14 @@ class SocialNetwork extends React.Component {
                     className={(page === this.props.currentPage) ? style.pageSelected : ''}
                     // onClick={(page !== this.props.currentPage) && onPagesClick}> это короткая,
                     // но не совсем корректная запись однократного условия, правильнее писать так, как ниже
-                    onClick={(page !== this.props.currentPage) ? onPagesClick : undefined}
+                    onClick={(page !== this.props.currentPage) ? () => {this.onPagesClick(page)} : undefined}
                     key={page}>
                     {page}
                 </span>
             )
         })
 
+        console.log(this.props.currentPage)
         return (
             <div className={style.main}>
                 <div className={style.pagination}>
