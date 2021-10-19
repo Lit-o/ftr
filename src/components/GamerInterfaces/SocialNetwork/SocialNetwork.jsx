@@ -27,12 +27,21 @@ import * as axios from "axios";
 
 class SocialNetwork extends React.Component {
 
-    getUsers = () => {
-        if (this.props.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-                this.props.setUsers(response.data.items);
-            })
-        }
+    // constructor официально не является методом жизненного цикла,
+    // но по сути, он говорит, что компонент сконструировался.
+    // Компонент, при переходе на другую страницу стирается из памяти,
+    // но пока действия происходят на этой странице, то только повторно вызывется рендер(),
+    // конструктор запускается только один раз при заходе на эту страницу.
+
+    // constructor(props) {
+    //     super(props);
+    // }
+
+    componentDidMount() {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            this.props.setUsers(response.data.items);
+        });
+        alert('new');
     }
 
     render() {
@@ -60,7 +69,6 @@ class SocialNetwork extends React.Component {
         return (
             <div className={style.main}>
                 <h1 className="visuallyHidden">Social Network</h1>
-                <button onClick={this.getUsers}>Find someone</button>
                 {setUsers}
             </div>
         )
