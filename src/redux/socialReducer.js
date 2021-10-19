@@ -8,8 +8,9 @@ let initialState = {
     users: [],
     pageSize: 3,
     totalUsersCount: 31,
-    currentPage: 7
+    currentPage: 1
 }
+
 //         {
 //             id: 0,
 //             name: 'Zero-User',
@@ -20,6 +21,7 @@ let initialState = {
 //         },
 
 const socialReducer = (state = initialState, action) => {
+
     switch (action.type) {
         case MARK:
             return {
@@ -46,6 +48,8 @@ const socialReducer = (state = initialState, action) => {
                 })
             }
         case SET_USERS: {
+            console.log("first" + action.users);
+
             return {
                 ...state,
                 // склеиваем два массива, который был в стейте и который пришел.

@@ -2,19 +2,6 @@ import React from "react";
 import style from "./SocialNetwork.module.css"
 import * as axios from "axios";
 
-
-//     props.setUsers([
-//         {
-//             id: 0,
-//             name: 'Zero-User',
-//             status: 'Access denied',
-//             isHaveJob: false,
-//             isMarked: false,
-//             avaURL: null
-//         },
-//     ])
-
-
 class SocialNetwork extends React.Component {
 
     // constructor официально не является методом жизненного цикла,
@@ -26,7 +13,7 @@ class SocialNetwork extends React.Component {
     //     super(props);
     // }
 
-    //обращаемся к, и дополняем метод componentDidMount своими инструкциями
+    //обращаемся к методу componentDidMount и наполняем своими инструкциями
 
     componentDidMount() {
         let countRequest = "count=" + this.props.pageSize;
@@ -104,7 +91,6 @@ class SocialNetwork extends React.Component {
             )
         })
 
-        console.log(this.props.currentPage)
         return (
             <div className={style.main}>
                 <div className={style.pagination}>
