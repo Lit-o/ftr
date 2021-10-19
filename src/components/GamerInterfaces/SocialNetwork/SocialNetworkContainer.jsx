@@ -4,7 +4,10 @@ import {markAC, setUsersAC, unmarkAC} from "../../../redux/socialReducer";
 
 let mapStateToProps = (state) => {
     return {
-        users: state.socialPage.users
+        users: state.socialPage.users,
+        pageSize: state.socialPage.pageSize,
+        totalUsersCount: state.socialPage.totalUsersCount,
+        currentPage: state.socialPage.currentPage
     }
 }
 

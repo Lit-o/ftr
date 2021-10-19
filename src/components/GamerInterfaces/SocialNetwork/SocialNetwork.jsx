@@ -32,19 +32,28 @@ class SocialNetwork extends React.Component {
     // Компонент, при переходе на другую страницу стирается из памяти,
     // но пока действия происходят на этой странице, то только повторно вызывется рендер(),
     // конструктор запускается только один раз при заходе на эту страницу.
-
     // constructor(props) {
     //     super(props);
     // }
 
     componentDidMount() {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-            this.props.setUsers(response.data.items);
-        });
+        if (this.props.users.length === 0) {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+                this.props.setUsers(response.data.items);
+            });
+        }
         alert('new');
     }
 
     render() {
+        // создаем массив, с помощью цикла for и метода push высчитав pagesCount,
+        // потом уже в рендере создаем массив с разметкой используя map()
+        let pagesCount = this.props.totalUsersCount / this.props.pageSize;
+        let pages = [];
+        for (let i = 1; i <= pagesCount && i <= 15; i++) {
+            pages.push(i)
+        }
+        console.log(pages)
         let setUsers = this.props.users.map(u => {
             let unmark = () => {
                 this.props.unmark(u.id)
@@ -66,8 +75,17 @@ class SocialNetwork extends React.Component {
                 </div>
             )
         })
+        let setPages = pages.map(page => {
+            return (
+                <span className={(page === this.props.currentPage) ? style.pageSelected : ''}>{page}</span>
+            )
+        })
+
         return (
             <div className={style.main}>
+                <div className={style.pagination}>
+                    {setPages}
+                </div>
                 <h1 className="visuallyHidden">Social Network</h1>
                 {setUsers}
             </div>
