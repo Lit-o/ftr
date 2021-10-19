@@ -2,12 +2,14 @@ const MARK = 'MARK';
 const UNMARK = 'UNMARK';
 const SET_USERS = 'SET-USERS';
 
+
 let initialState = {
     users: [],
     pageSize: 5,
     totalUsersCount: 30,
     currentPage: 2
 }
+
 //         {
 //             id: 0,
 //             name: 'Zero-User',

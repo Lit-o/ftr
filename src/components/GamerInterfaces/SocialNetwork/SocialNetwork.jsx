@@ -46,14 +46,6 @@ class SocialNetwork extends React.Component {
     }
 
     render() {
-        // создаем массив, с помощью цикла for и метода push высчитав pagesCount,
-        // потом уже в рендере создаем массив с разметкой используя map()
-        let pagesCount = this.props.totalUsersCount / this.props.pageSize;
-        let pages = [];
-        for (let i = 1; i <= pagesCount && i <= 15; i++) {
-            pages.push(i)
-        }
-        console.log(pages)
         let setUsers = this.props.users.map(u => {
             let unmark = () => {
                 this.props.unmark(u.id)
@@ -62,7 +54,6 @@ class SocialNetwork extends React.Component {
                 this.props.mark(u.id)
             };
             return (
-
                 <div className={style.userCard} key={u.id}>
                     <img
                         src={u.avaURL !== null ? u.avaURL : "https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_120dp.png"}
@@ -75,9 +66,28 @@ class SocialNetwork extends React.Component {
                 </div>
             )
         })
+
+        // создаем массив, с помощью цикла for и метода push высчитав pagesCount,
+        // потом уже в рендере создаем массив с разметкой используя map()
+        let pagesCount = this.props.totalUsersCount / this.props.pageSize;
+        let pages = [];
+        for (let i = 1; i <= pagesCount && i <= 15; i++) {
+            pages.push(i)
+        }
+        let onPagesClick = () => {
+            alert('Wanna changes?')
+        }
+
         let setPages = pages.map(page => {
             return (
-                <span className={(page === this.props.currentPage) ? style.pageSelected : ''}>{page}</span>
+                <span
+                    className={(page === this.props.currentPage) ? style.pageSelected : ''}
+                    // onClick={(page !== this.props.currentPage) && onPagesClick}> это короткая,
+                    // но не совсем корректная запись однократного условия, правильнее писать так, как ниже
+                    onClick={(page !== this.props.currentPage) ? onPagesClick : undefined}
+                    key={page}>
+                    {page}
+                </span>
             )
         })
 
