@@ -1,13 +1,14 @@
-import SocialNetwork from "./SocialNetwork";
 import {connect} from "react-redux";
 import {markAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unmarkAC} from "../../../redux/socialReducer";
+import SocialNetworkClassAPI from "./SocialNetworkClassAPI";
 
 let mapStateToProps = (state) => {
     return {
         users: state.socialPage.users,
         pageSize: state.socialPage.pageSize,
         totalUsersCount: state.socialPage.totalUsersCount,
-        currentPage: state.socialPage.currentPage
+        currentPage: state.socialPage.currentPage,
+        isFetching: state.socialPage.isFetching
     }
 }
 
@@ -31,4 +32,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SocialNetwork)
+export default connect(mapStateToProps, mapDispatchToProps)(SocialNetworkClassAPI)

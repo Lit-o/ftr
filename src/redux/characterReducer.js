@@ -5,19 +5,30 @@ const CHANGE_TEXTAREA = 'CHANGE-TEXTAREA';
 
 let initialState = {
     thoughts: [
-        {id: 0, key: 0, thought: "Maybe I should think about something? Huh..."},
+        {id: 0, key: 0, thought: "Maybe I should think about something? Huh..."}
     ],
     characteristics: {
-        agility: 1,
         strength: 1,
+        agility: 1,
+        perception: 1,
         intelligence: 1,
+        accuracy: 1,
+        charisma: 1,
         freeCharPoints: 5
     },
     HP: {
         capacityHP: 10,
         currentHP: 7
     },
-    textarea: 'lorem',
+    energy: {
+      capacityEnergy: 10,
+      currentEnergy: 7
+    },
+    motivation: {
+        capacityMotivation: 10,
+        currentMotivation: 7
+    },
+    textarea: 'lorem'
 }
 
 
@@ -30,6 +41,7 @@ const characterReducer = (state = initialState, action) => {
                 key: (state.thoughts[state.thoughts.length - 1].key) + 1,
                 thought: state.textarea,
             };
+
             // глубокое копирование
             // let stateCopy = {...state}
             // stateCopy.thoughts = [...state.thoughts]
@@ -39,7 +51,6 @@ const characterReducer = (state = initialState, action) => {
             // Копируем только то, что планируем изменить. Вот у нас есть объекты в массиве thoughts,
             // но мы их менять не планируем, планируем только добавлять новые,
             // значит и копировать существующие объекты в этом кейсе не нужно
-
             // let stateCopy = {
             //     ...state,
             //     thoughts: [...state.thoughts]
@@ -49,7 +60,8 @@ const characterReducer = (state = initialState, action) => {
             // что ниже, пуш заменили на запятую в спрет операторе
 
             return {
-                ...state,   // ...state.thoughts копирует
+                ...state,
+                // ...state.thoughts копирует
                 // элементы массива, после запятой добавляет новый элемент newText,
                 // если запятую поставить перед копированием массива,
                 // то сможем элемент добавить перед основным телом массива
