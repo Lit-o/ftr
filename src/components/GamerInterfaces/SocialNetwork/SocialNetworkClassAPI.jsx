@@ -17,11 +17,14 @@ class SocialNetworkClassAPI extends React.Component {
         let countRequest = "count=" + this.props.pageSize;
         let pageRequest = "page=" + this.props.currentPage;
         if (this.props.users.length === 0) {
+            this.props.toggleIsFetching(true);
             axios.get("https://social-network.samuraijs.com/api/1.0/users?" + countRequest + "&" + pageRequest).then(response => {
+                this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items);
+
             });
         }
-        ;
+
         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
             this.props.setUsersCount(response.data.totalCount)
         });
@@ -29,11 +32,13 @@ class SocialNetworkClassAPI extends React.Component {
 
     // Создаем свой метод на клик по страничкам
     onPagesClick = (page) => {
+        this.props.toggleIsFetching(true);
         this.props.setCurrentPage(page);
 
         let countRequest = "count=" + this.props.pageSize;
         let pageRequest = "page=" + page; // здесь берем page тк setCurrentPage еще не долетел до стора, а мы уже делаем запрос
         axios.get("https://social-network.samuraijs.com/api/1.0/users?" + countRequest + "&" + pageRequest).then(response => {
+            this.props.toggleIsFetching(false);
             this.props.setUsers(response.data.items);
         });
     }
@@ -41,15 +46,17 @@ class SocialNetworkClassAPI extends React.Component {
 
     render() {
         return (
-           <SocialNetwork
-               mark={this.props.mark}
-               unmark={this.props.unmark}
-               totalUsersCount={this.props.totalUsersCount}
-               pageSize={this.props.pageSize}
-               currentPage={this.props.currentPage}
-               users={this.props.users}
-               isFetching={this.props.isFetching}
-               onPagesClick={this.onPagesClick}/>
+            <>
+                <SocialNetwork
+                    mark={this.props.mark}
+                    unmark={this.props.unmark}
+                    totalUsersCount={this.props.totalUsersCount}
+                    pageSize={this.props.pageSize}
+                    currentPage={this.props.currentPage}
+                    users={this.props.users}
+                    isFetching={this.props.isFetching}
+                    onPagesClick={this.onPagesClick}/>
+            </>
         )
     }
 }

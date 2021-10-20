@@ -1,5 +1,12 @@
 import {connect} from "react-redux";
-import {markAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unmarkAC} from "../../../redux/socialReducer";
+import {
+    markAC,
+    setCurrentPageAC,
+    setTotalUsersCountAC,
+    setUsersAC,
+    toggleIsFetchingAC,
+    unmarkAC
+} from "../../../redux/socialReducer";
 import SocialNetworkClassAPI from "./SocialNetworkClassAPI";
 
 let mapStateToProps = (state) => {
@@ -28,6 +35,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setCurrentPage: (currentPage) => {
             dispatch(setCurrentPageAC(currentPage))
+        },
+        toggleIsFetching: (isFetching) => {
+            dispatch(toggleIsFetchingAC(isFetching))
         }
     }
 }

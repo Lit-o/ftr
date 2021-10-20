@@ -3,6 +3,7 @@ const UNMARK = 'UNMARK';
 const SET_USERS = 'SET-USERS';
 const SET_USERS_COUNT = 'SET-USERS-COUNT';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
+const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING'
 
 let initialState = {
     users: [],
@@ -71,6 +72,12 @@ const socialReducer = (state = initialState, action) => {
                 currentPage: action.currentPage
             }
         }
+        case TOGGLE_IS_FETCHING: {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+        }
         default:
             return state;
     }
@@ -81,5 +88,6 @@ export const unmarkAC = (userId) => ({type: UNMARK, userId});
 export const setUsersAC = (users) => ({type: SET_USERS, users:users});
 export const setTotalUsersCountAC = (usersCount) => ({type: SET_USERS_COUNT, usersCount})
 export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export default socialReducer;

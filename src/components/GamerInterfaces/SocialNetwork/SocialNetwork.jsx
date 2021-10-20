@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./SocialNetwork.module.css"
+import Preloader from "../../common/Preloader/Preloader";
 
 const SocialNetwork = (props) => {
     let setUsers = props.users.map(u => {
@@ -55,10 +56,10 @@ const SocialNetwork = (props) => {
 
     return (
         <div className={style.main}>
-            <div className={style.pagination}>
-                {setPages}
-            </div>
             <h1 className="visuallyHidden">Social Network</h1>
+
+            <div className={style.pagination}> {setPages} </div>
+            {props.isFetching ? <Preloader/> : null}
             {setUsers}
         </div>
     )
