@@ -1,15 +1,35 @@
 import React from "react";
 import style from "./SocialNetwork.module.css"
 import Preloader from "../../common/Preloader/Preloader";
+import * as axios from "axios";
 
 const SocialNetwork = (props) => {
+    debugger
     let setUsers = props.users.map(u => {
         let unmark = () => {
-            props.unmark(u.id)
+            axios.delete("https://social-network.samuraijs.com/api/1.0/follow/" + u.id, {
+                    withCredentials: true,
+                    headers: {"API-KEY": "9285cb5d-665e-4f8d-85e6-158b43aed29d"}
+                }
+            ).then(response => {
+                if (response.data.resultCode == 0) {
+                    props.unmark(u.id);
+                }
+            })
         };
+
         let mark = () => {
-            props.mark(u.id)
+            axios.post("https://social-network.samuraijs.com/api/1.0/follow/" + u.id, {}, {
+                    withCredentials: true,
+                    headers: {"API-KEY": "9285cb5d-665e-4f8d-85e6-158b43aed29d"}
+                }
+            ).then(response => {
+                if (response.data.resultCode == 0) {
+                    props.mark(u.id);
+                }
+            })
         };
+
         return (
             <div className={style.userCard} key={u.id}>
                 <img
@@ -17,7 +37,7 @@ const SocialNetwork = (props) => {
                     alt="avatar"/>
                 <p>{u.name}</p>
                 <p>{u.status}</p>
-                {u.isMarked
+                {u.followed
                     ? <button onClick={unmark}>Unmark</button>
                     : <button onClick={mark}>Mark</button>}
             </div>

@@ -33,7 +33,7 @@ const socialReducer = (state = initialState, action) => {
                 // объекта ...u и меняем в нем ,mark: true
                 users: state.users.map(u => {
                     if(u.id === action.userId) {
-                        return {...u, isMarked: true}
+                        return {...u, followed: true}
                     }
                     return u
                 })
@@ -44,13 +44,12 @@ const socialReducer = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if(u.id === action.userId) {
-                        return {...u, isMarked: false}
+                        return {...u, followed: false}
                     }
                     return u
                 })
             }
         case SET_USERS: {
-            console.log("first" + action.users);
 
             return {
                 ...state,

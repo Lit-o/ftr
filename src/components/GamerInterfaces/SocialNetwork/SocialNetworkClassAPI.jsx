@@ -18,14 +18,21 @@ class SocialNetworkClassAPI extends React.Component {
         let pageRequest = "page=" + this.props.currentPage;
         if (this.props.users.length === 0) {
             this.props.toggleIsFetching(true);
-            axios.get("https://social-network.samuraijs.com/api/1.0/users?" + countRequest + "&" + pageRequest).then(response => {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users?" + countRequest + "&" + pageRequest, {
+                    withCredentials: true,
+                    headers: {"API-KEY": "9285cb5d-665e-4f8d-85e6-158b43aed29d"}
+                }
+            ).then(response => {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items);
-
             });
         }
 
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users", {
+                withCredentials: true,
+                headers: {"API-KEY": "9285cb5d-665e-4f8d-85e6-158b43aed29d"}
+            }
+        ).then(response => {
             this.props.setUsersCount(response.data.totalCount)
         });
     }
@@ -43,8 +50,12 @@ class SocialNetworkClassAPI extends React.Component {
         });
     }
 
-
     render() {
+
+        // if (this.props.isFetching) {
+        //     return <Preloader />
+        // }
+
         return (
             <>
                 <SocialNetwork

@@ -19,7 +19,7 @@ const GamerInterfaces = () => {
             <div className={style.flexCont}>
                 <Route render={Character} exact path="/character"/>
                 <Route component={Actions} exact path="/actions"/>
-                <Route render={Social} exact path="/social"/>
+                <Route render={Social} exact path="/social/:userId?"/>
                 <Route render={History} exact path="/history"/>
             </div>
         </div>

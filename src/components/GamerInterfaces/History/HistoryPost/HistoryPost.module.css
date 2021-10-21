@@ -42,7 +42,7 @@
     content: attr(data-tooltip);
     position: absolute;
     transform: rotate(-45deg);
-    top: -70px;
+    top: -80px;
     right: -50px;
     width: 120px;
     padding: 5px;

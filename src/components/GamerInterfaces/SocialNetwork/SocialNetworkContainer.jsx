@@ -8,6 +8,7 @@ import {
     unmarkAC
 } from "../../../redux/socialReducer";
 import SocialNetworkClassAPI from "./SocialNetworkClassAPI";
+import {withRouter} from "react-router-dom";
 
 let mapStateToProps = (state) => {
     return {
@@ -42,4 +43,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SocialNetworkClassAPI)
+// URL container layer/ Эта обертка дает возможность получать данные url
+let WithURLDataSocialNetworkClassAPI = withRouter(SocialNetworkClassAPI)
+
+export default connect(mapStateToProps, mapDispatchToProps)(WithURLDataSocialNetworkClassAPI)
