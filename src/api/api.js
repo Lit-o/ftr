@@ -6,7 +6,7 @@ const instance = axios.create({
     headers: {"API-KEY": "9285cb5d-665e-4f8d-85e6-158b43aed29d"}
 })
 
-//создаем объект и метод
+//создаем объект и методы
 export const socialAPI = {
     getUsers(countRequest, pageRequest) {
         return instance.get("users?count=" + countRequest + "&page=" + pageRequest).then(response => {

@@ -4,7 +4,7 @@ import {
     setCurrentPageAC,
     setTotalUsersCountAC,
     setUsersAC,
-    toggleIsFetchingAC,
+    toggleIsFetchingAC, toggleIsFollowingAC,
     unmarkAC
 } from "../../../redux/socialReducer";
 import SocialNetworkClassAPI from "./SocialNetworkClassAPI";
@@ -16,7 +16,8 @@ let mapStateToProps = (state) => {
         pageSize: state.socialPage.pageSize,
         totalUsersCount: state.socialPage.totalUsersCount,
         currentPage: state.socialPage.currentPage,
-        isFetching: state.socialPage.isFetching
+        isFetching: state.socialPage.isFetching,
+        isFollowing: state.socialPage.isFollowing
     }
 }
 
@@ -39,6 +40,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         toggleIsFetching: (isFetching) => {
             dispatch(toggleIsFetchingAC(isFetching))
+        },
+        toggleIsFollowing: (isFollowing) => {
+            dispatch(toggleIsFollowingAC(isFollowing))
         }
     }
 }

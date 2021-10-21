@@ -3,14 +3,16 @@ const UNMARK = 'UNMARK';
 const SET_USERS = 'SET-USERS';
 const SET_USERS_COUNT = 'SET-USERS-COUNT';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
-const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING'
+const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
+const TOGGLE_IS_FOLLOWING = 'TOGGLE-IS-FOLLOWING';
 
 let initialState = {
     users: [],
     pageSize: 3,
     totalUsersCount: 31,
     currentPage: 1,
-    isFetching: false
+    isFetching: false,
+    isFollowing: false
 }
 
 //         {
@@ -77,6 +79,12 @@ const socialReducer = (state = initialState, action) => {
                 isFetching: action.isFetching
             }
         }
+        case TOGGLE_IS_FOLLOWING: {
+            return {
+                ...state,
+                isFollowing: action.isFollowing
+            }
+        }
         default:
             return state;
     }
@@ -88,5 +96,6 @@ export const setUsersAC = (users) => ({type: SET_USERS, users:users});
 export const setTotalUsersCountAC = (usersCount) => ({type: SET_USERS_COUNT, usersCount})
 export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const toggleIsFollowingAC = (isFollowing) => ({type: TOGGLE_IS_FOLLOWING, isFollowing})
 
 export default socialReducer;

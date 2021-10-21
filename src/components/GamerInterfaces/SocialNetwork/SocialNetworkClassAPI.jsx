@@ -54,6 +54,8 @@ class SocialNetworkClassAPI extends React.Component {
                     currentPage={this.props.currentPage}
                     users={this.props.users}
                     isFetching={this.props.isFetching}
+                    isFollowing={this.props.isFollowing}
+                    toggleIsFollowing={this.props.toggleIsFollowing}
                     onPagesClick={this.onPagesClick}/>
             </>
         )

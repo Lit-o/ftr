@@ -6,18 +6,22 @@ import {socialAPI} from "../../../api/api";
 const SocialNetwork = (props) => {
     let setUsers = props.users.map(u => {
         let unmark = () => {
+            props.toggleIsFollowing(true);
             socialAPI.setUnfollow(u.id).then(data => {
                 if (data.resultCode === 0) {
                     props.unmark(u.id);
                 }
+                props.toggleIsFollowing(false);
             })
         };
 
         let mark = () => {
+            props.toggleIsFollowing(true);
             socialAPI.setFollow(u.id).then(data => {
                 if (data.resultCode === 0) {
                     props.mark(u.id);
                 }
+                props.toggleIsFollowing(false);
             })
         };
 
@@ -29,8 +33,8 @@ const SocialNetwork = (props) => {
                 <p>{u.name}</p>
                 <p>{u.status}</p>
                 {u.followed
-                    ? <button onClick={unmark}>Unmark</button>
-                    : <button onClick={mark}>Mark</button>}
+                    ? <button disabled={props.isFollowing} onClick={unmark}>Unmark</button>
+                    : <button disabled={props.isFollowing} onClick={mark}>Mark</button>}
             </div>
         )
     })
