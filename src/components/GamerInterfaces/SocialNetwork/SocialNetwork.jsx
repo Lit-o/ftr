@@ -1,30 +1,21 @@
 import React from "react";
 import style from "./SocialNetwork.module.css"
 import Preloader from "../../common/Preloader/Preloader";
-import * as axios from "axios";
+import {socialAPI} from "../../../api/api";
 
 const SocialNetwork = (props) => {
-    debugger
     let setUsers = props.users.map(u => {
         let unmark = () => {
-            axios.delete("https://social-network.samuraijs.com/api/1.0/follow/" + u.id, {
-                    withCredentials: true,
-                    headers: {"API-KEY": "9285cb5d-665e-4f8d-85e6-158b43aed29d"}
-                }
-            ).then(response => {
-                if (response.data.resultCode == 0) {
+            socialAPI.setUnfollow(u.id).then(data => {
+                if (data.resultCode === 0) {
                     props.unmark(u.id);
                 }
             })
         };
 
         let mark = () => {
-            axios.post("https://social-network.samuraijs.com/api/1.0/follow/" + u.id, {}, {
-                    withCredentials: true,
-                    headers: {"API-KEY": "9285cb5d-665e-4f8d-85e6-158b43aed29d"}
-                }
-            ).then(response => {
-                if (response.data.resultCode == 0) {
+            socialAPI.setFollow(u.id).then(data => {
+                if (data.resultCode === 0) {
                     props.mark(u.id);
                 }
             })
@@ -33,7 +24,7 @@ const SocialNetwork = (props) => {
         return (
             <div className={style.userCard} key={u.id}>
                 <img
-                    src={u.avaURL !== null ? u.avaURL : "https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_120dp.png"}
+                    src={u.photos.small !== null ? u.photos.small : "https://www.gstatic.com/images/branding/product/2x/avatar_anonymous_120dp.png"}
                     alt="avatar"/>
                 <p>{u.name}</p>
                 <p>{u.status}</p>
