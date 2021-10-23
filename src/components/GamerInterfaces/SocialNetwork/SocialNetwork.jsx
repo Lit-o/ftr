@@ -4,27 +4,27 @@ import Preloader from "../../common/Preloader/Preloader";
 import {socialAPI} from "../../../api/api";
 
 const SocialNetwork = (props) => {
+    debugger
     let setUsers = props.users.map(u => {
         let unmark = () => {
-            props.toggleIsFollowing(true);
+            props.isInFollowingQueue(true, u.id);
             socialAPI.setUnfollow(u.id).then(data => {
                 if (data.resultCode === 0) {
                     props.unmark(u.id);
                 }
-                props.toggleIsFollowing(false);
+                props.isInFollowingQueue(false, u.id);
             })
         };
 
         let mark = () => {
-            props.toggleIsFollowing(true);
+            props.isInFollowingQueue(true, u.id);
             socialAPI.setFollow(u.id).then(data => {
                 if (data.resultCode === 0) {
                     props.mark(u.id);
                 }
-                props.toggleIsFollowing(false);
+                props.isInFollowingQueue(false, u.id);
             })
         };
-
         return (
             <div className={style.userCard} key={u.id}>
                 <img
@@ -33,8 +33,8 @@ const SocialNetwork = (props) => {
                 <p>{u.name}</p>
                 <p>{u.status}</p>
                 {u.followed
-                    ? <button disabled={props.isFollowing} onClick={unmark}>Unmark</button>
-                    : <button disabled={props.isFollowing} onClick={mark}>Mark</button>}
+                    ? <button disabled={props.followingQueue.some(arrayItemData => arrayItemData === u.id)} onClick={unmark}>Unmark</button>
+                    : <button disabled={props.followingQueue.some(arrayItemData => arrayItemData === u.id)} onClick={mark}>Mark</button>}
             </div>
         )
     })
