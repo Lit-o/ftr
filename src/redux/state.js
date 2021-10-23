@@ -41,7 +41,6 @@ let store = {
     dispatch(action) {
         this._state.characterPage = characterReducer(this._state.characterPage, action);
         this._state.historyReducer = historyReducer(this._state.characterPage, action);
-        // this._state.characterPage = characterReducer(this._state.characterPage, action);
         this._callSubscriber(this._state);
     }
 }
