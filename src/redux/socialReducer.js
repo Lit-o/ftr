@@ -1,3 +1,5 @@
+import {socialAPI} from "../api/api";
+
 const MARK = 'MARK';
 const UNMARK = 'UNMARK';
 const SET_USERS = 'SET-USERS';
@@ -22,7 +24,7 @@ const socialReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.map(u => {
-                    if(u.id === action.userId) {
+                    if (u.id === action.userId) {
                         return {...u, followed: true}
                     }
                     return u
@@ -32,7 +34,7 @@ const socialReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.map(u => {
-                    if(u.id === action.userId) {
+                    if (u.id === action.userId) {
                         return {...u, followed: false}
                     }
                     return u
@@ -77,10 +79,54 @@ const socialReducer = (state = initialState, action) => {
 
 export const markAC = (userId) => ({type: MARK, userId});
 export const unmarkAC = (userId) => ({type: UNMARK, userId});
-export const setUsersAC = (users) => ({type: SET_USERS, users:users});
+export const setUsersAC = (users) => ({type: SET_USERS, users: users});
 export const setTotalUsersCountAC = (usersCount) => ({type: SET_USERS_COUNT, usersCount})
 export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const isFollowingAC = (isFollowing, id) => ({type: FOLLOWING_IN_PROGRESS, isFollowing, id})
+
+export const getUsersThunkCreator = (pageSize, currentPage) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetchingAC(true));
+        socialAPI.getUsers(pageSize, currentPage).then(data => {
+            dispatch(toggleIsFetchingAC(false));
+            dispatch(setUsersAC(data.items));
+        });
+    }
+}
+
+export const getUsersCountThunkCreator = () => {
+    return (dispatch) => {
+        socialAPI.getUsersCount().then(data => {
+            dispatch(setTotalUsersCountAC(data.totalCount))
+        });
+    }
+}
+
+export const unmarkThunkCreator = (userId) => {
+    return (dispatch) => {
+        dispatch(isFollowingAC(true, userId));
+        socialAPI.setUnfollow(userId).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(unmarkAC(userId));
+            }
+            dispatch(isFollowingAC(false, userId));
+        })
+    }
+}
+
+export const markThunkCreator = (userId) => {
+    return (dispatch) => {
+        dispatch(isFollowingAC(true, userId));
+        socialAPI.setFollow(userId).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(markAC(userId));
+            }
+            dispatch(isFollowingAC(false, userId));
+        })
+    }
+}
+
+
 
 export default socialReducer;

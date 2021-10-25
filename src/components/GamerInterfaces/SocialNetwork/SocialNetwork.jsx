@@ -1,29 +1,15 @@
 import React from "react";
 import style from "./SocialNetwork.module.css"
 import Preloader from "../../common/Preloader/Preloader";
-import {socialAPI} from "../../../api/api";
 
 const SocialNetwork = (props) => {
-    debugger
     let setUsers = props.users.map(u => {
         let unmark = () => {
-            props.isInFollowingQueue(true, u.id);
-            socialAPI.setUnfollow(u.id).then(data => {
-                if (data.resultCode === 0) {
-                    props.unmark(u.id);
-                }
-                props.isInFollowingQueue(false, u.id);
-            })
+            props.unmarkThunkCreator(u.id)
         };
 
         let mark = () => {
-            props.isInFollowingQueue(true, u.id);
-            socialAPI.setFollow(u.id).then(data => {
-                if (data.resultCode === 0) {
-                    props.mark(u.id);
-                }
-                props.isInFollowingQueue(false, u.id);
-            })
+            props.markThunkCreator(u.id)
         };
         return (
             <div className={style.userCard} key={u.id}>
@@ -39,27 +25,16 @@ const SocialNetwork = (props) => {
         )
     })
 
-    // создаем массив, с помощью цикла for и метода push высчитав
-    // pagesCount (округляем в большую сторону деление Math.ceil,
-    // чтобы не потерять "неполную страничку"),
-    // потом уже в рендере создаем массив с разметкой используя map()
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
     for (let i = 1; i <= pagesCount && i <= 10; i++) {
         pages.push(i)
     }
 
-    // let onPagesClick = (e) => {
-    //     let currentPage = Number(e.target.textContent);
-    //     props.setCurrentPage(currentPage);
-    // }
-
     let setPages = pages.map(page => {
         return (
             <span
                 className={(page === props.currentPage) ? style.pageSelected : ''}
-                // onClick={(page !== props.currentPage) && onPagesClick}> это короткая,
-                // но не совсем корректная запись однократного условия, правильнее писать так, как ниже
                 onClick={(page !== props.currentPage) ? () => {
                     props.onPagesClick(page)
                 } : undefined}

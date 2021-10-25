@@ -5,13 +5,13 @@ import Nav from "./components/Nav/Nav";
 import ActionGraphicRepresentations from "./components/ActionGraphicRepresentations/ActionGraphicRepresentations";
 import GamerInterfaces from "./components/GamerInterfaces/GamerInterfaces";
 
-function App(props) {
+function App() {
     return (
         <div className="Main">
             <Header/>
             <div className="App_body_wrapper">
                 <Nav/>
-                <GamerInterfaces store={props.store}/>
+                <GamerInterfaces/>
                 <ActionGraphicRepresentations/>
             </div>
         </div>

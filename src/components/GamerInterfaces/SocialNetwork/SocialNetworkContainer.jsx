@@ -1,16 +1,14 @@
 import {connect} from "react-redux";
 import {
-    isFollowingAC,
-    markAC,
+    getUsersCountThunkCreator,
+    getUsersThunkCreator,
+    markThunkCreator,
     setCurrentPageAC,
-    setTotalUsersCountAC,
-    setUsersAC,
-    toggleIsFetchingAC,
-    unmarkAC
+    unmarkThunkCreator
 } from "../../../redux/socialReducer";
-
 import SocialNetworkClassAPI from "./SocialNetworkClassAPI";
 import {withRouter} from "react-router-dom";
+
 
 let mapStateToProps = (state) => {
     return {
@@ -19,33 +17,26 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.socialPage.totalUsersCount,
         currentPage: state.socialPage.currentPage,
         isFetching: state.socialPage.isFetching,
-        isFollowing: state.socialPage.isFollowing,
         followingQueue: state.socialPage.followingQueue
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        mark: (userId) => {
-            dispatch(markAC(userId))
-        },
-        unmark: (userId) => {
-            dispatch(unmarkAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        },
-        setUsersCount: (usersCount) => {
-            dispatch(setTotalUsersCountAC(usersCount))
-        },
         setCurrentPage: (currentPage) => {
             dispatch(setCurrentPageAC(currentPage))
         },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching))
+        getUsersThunkCreator: (pageSize, currentPage) => {
+            dispatch(getUsersThunkCreator(pageSize, currentPage))
         },
-        isInFollowingQueue: (isFollowing, id) => {
-            dispatch(isFollowingAC(isFollowing, id))
+        getUsersCountThunkCreator: () => {
+            dispatch(getUsersCountThunkCreator())
+        },
+        unmarkThunkCreator: (userId) => {
+            dispatch(unmarkThunkCreator(userId))
+        },
+        markThunkCreator: (userId) => {
+            dispatch(markThunkCreator(userId))
         }
     }
 }
