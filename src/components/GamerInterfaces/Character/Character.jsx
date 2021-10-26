@@ -29,13 +29,13 @@ const Character = (props) => {
                 <h3>Character attributes</h3>
                 <p>Agility : {props.dataToCharacter.characteristics.agility} </p>
                 <p>Strength : {props.dataToCharacter.characteristics.strength} </p>
-                <p>Intelligence: {props.dataToCharacter.characteristics.intelligence} </p>
+                <p>Intelligence : {props.dataToCharacter.characteristics.intelligence} </p>
                 <p style={aquaStyle}>Free Char Points : {props.dataToCharacter.characteristics.freeCharPoints} </p>
             </div>
 
             <div className={style.hitPoints}>
-                <p>Hit Points Capacity: {props.dataToCharacter.HP.capacityHP}</p>
-                <p>Current Hit Points: {props.dataToCharacter.HP.currentHP}</p>
+                <p>Hit Points Capacity : {props.dataToCharacter.HP.capacityHP}</p>
+                <p>Hit Points Current : {props.dataToCharacter.HP.currentHP}</p>
             </div>
 
             <div className={style.charThoughts}>
