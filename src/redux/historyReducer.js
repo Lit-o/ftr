@@ -1,6 +1,8 @@
 const ADD_TO_FAVOURITE = 'ADD_TO_FAVOURITE'
 
 let initialState = {
+    isModuleDisable: false,
+
     stories: [
         {
             id: 0,

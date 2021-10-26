@@ -6,7 +6,8 @@ import History from "./History";
 
 let mapStateToProps = (state) => {
     return {
-        historyPage: state.historyPage
+        historyPage: state.historyPage,
+        isModuleDisable: state.historyPage.isModuleDisable
     }
 }
 

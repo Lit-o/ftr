@@ -1,0 +1,8 @@
+.Main {
+    text-align: center;
+}
+
+.Main h1 {
+    color: darkred;
+    text-shadow: darkred 0px 0px 20px;
+}

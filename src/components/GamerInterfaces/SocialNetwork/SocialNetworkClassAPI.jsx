@@ -1,5 +1,6 @@
 import React from "react";
 import SocialNetwork from "./SocialNetwork";
+import {Redirect} from "react-router-dom";
 
 class SocialNetworkClassAPI extends React.Component {
 
@@ -18,6 +19,8 @@ class SocialNetworkClassAPI extends React.Component {
     }
 
     render() {
+        if (this.props.isModuleDisable) return <Redirect to={"/nf010722"}/>
+
         return (
             <>
                 <SocialNetwork
