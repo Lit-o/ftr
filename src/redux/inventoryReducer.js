@@ -1,11 +1,14 @@
 
 let initialState = {
-    isModuleDisable: true,
+    isEmpty: true,
+    moduleRecoveryTime: "about a month",
 }
 
-const historyReducer = (state = initialState, action) => {
+const inventoryReducer = (state = initialState, action) => {
     switch (action.type) {
         default:
             return state;
     }
 };
+
+export default inventoryReducer;

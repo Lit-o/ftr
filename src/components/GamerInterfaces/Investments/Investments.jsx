@@ -1,15 +1,15 @@
 import {Redirect} from "react-router-dom";
 
 
-const Inventory = (props) => {
+const Investments = (props) => {
     if (props.commonUtilityState.isModuleInRecoveryDisable) {return <Redirect to={"/nf010722"} />}
 
     return (
         <div>
-            <h2>Inventory</h2>
-            <p>Expected time of recovery work : {props.inventoryPage.moduleRecoveryTime}</p>
+            <h2>Investments</h2>
+            <p>Expected time of recovery work : {props.investmentsPage.moduleRecoveryTime}</p>
         </div>
     )
 }
 
-export default Inventory;
+export default Investments;

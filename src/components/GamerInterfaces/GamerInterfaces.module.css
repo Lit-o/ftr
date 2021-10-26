@@ -1,7 +1,9 @@
 .main {
     padding: 0px;
-    background-color: rgba(30, 30, 30, 0.85);
+    /*background-color: rgba(30, 30, 30, 0.85);*/
+    background-color: rgba(0, 0, 0, 0.85);
     color: #fff;
+    border-left: 1px solid #282c34;
 }
 
 h1 {

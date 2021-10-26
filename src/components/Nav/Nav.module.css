@@ -1,12 +1,14 @@
 .nav {
     width: 200px;
     background-color: rgba(0, 0, 0, 0.75);
+
 }
 
 .nav ul {
     padding: 20px;
     /*padding-right: 40px;*/
     list-style: none;
+    /*border-right: 1px solid #777;*/
 }
 
 
@@ -35,16 +37,17 @@
     border: 1px solid gold;
 }
 
-/*.inProgress {*/
-/*    cursor: not-allowed;*/
-/*    background-color: rgba(255, 0, 0, 0.3);*/
-/*}*/
-/*.inProgress:hover {*/
-/*    background-color: rgba(255, 0, 0, 0.6);*/
-/*    color: #fff;*/
-/*}*/
+.inProgress {
+    cursor: not-allowed;
+    background-color: rgba(255, 0, 0, 0.0);
+    border-left: 1px solid #282c34;
+}
+.inProgress:hover {
+    background-color: rgba(255, 0, 0, 0.3);
+    color: #fff;
+}
 
-/*.link.active.inProgress {*/
-/*    background-color: rgba(255, 0, 0, 0.8);*/
-/*    color: #fff;*/
-/*}*/
+.link.active.inProgress {
+    background-color: rgba(255, 0, 0, 0.6);
+    color: #fff;
+}
