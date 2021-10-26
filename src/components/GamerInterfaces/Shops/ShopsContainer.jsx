@@ -1,11 +1,15 @@
 import {connect} from "react-redux";
 import Shops from "./Shops";
+import ShopsWithDisableComponent from "./Shops";
 
 
-
-let mapStateToProps = (state) => {
+let mapStateToPropsForRedirect = (state) => {
     return {
         commonUtilityState : state.commonUtilityState,
+    }
+}
+let mapStateToProps = (state) => {
+    return {
         shopsPage: state.shopsPage
     }
 }
@@ -16,6 +20,9 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const ShopsContainer = connect(mapStateToProps, mapDispatchToProps)(Shops)
+let ShopsWithDisableComponentAndRedirectProps = connect(mapStateToPropsForRedirect) (ShopsWithDisableComponent)
+
+
+const ShopsContainer = connect(mapStateToProps, mapDispatchToProps)(ShopsWithDisableComponentAndRedirectProps)
 
 export default ShopsContainer;

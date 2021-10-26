@@ -1,9 +1,6 @@
-import {Redirect} from "react-router-dom";
-
+import {withModuleDisable} from "../../../hoc/withModuleDisable";
 
 const Investments = (props) => {
-    if (props.commonUtilityState.isModuleInRecoveryDisable) {return <Redirect to={"/nf010722"} />}
-
     return (
         <div>
             <h2>Investments</h2>
@@ -12,4 +9,6 @@ const Investments = (props) => {
     )
 }
 
-export default Investments;
+let InvestmentsWithDisableComponent = withModuleDisable(Investments)
+
+export default InvestmentsWithDisableComponent;

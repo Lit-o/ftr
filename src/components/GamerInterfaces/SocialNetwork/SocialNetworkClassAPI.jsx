@@ -1,6 +1,8 @@
 import React from "react";
 import SocialNetwork from "./SocialNetwork";
 import {Redirect} from "react-router-dom";
+import ShopsWithDisableComponent from "../Shops/Shops";
+import {withModuleDisable} from "../../../hoc/withModuleDisable";
 
 class SocialNetworkClassAPI extends React.Component {
 
@@ -38,4 +40,8 @@ class SocialNetworkClassAPI extends React.Component {
     }
 }
 
-export default SocialNetworkClassAPI;
+// let SocialNetworkClassAPIWithDisableComponent = withModuleDisable(SocialNetworkClassAPI) HOC отключающий модуль с редиректом
+let SocialNetworkClassAPIWithDisableComponent = SocialNetworkClassAPI
+
+
+export default SocialNetworkClassAPIWithDisableComponent;

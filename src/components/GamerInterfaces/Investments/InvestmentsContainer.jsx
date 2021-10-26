@@ -1,11 +1,10 @@
 import {connect} from "react-redux";
-import Investments from "./Investments";
+import InvestmentsWithDisableComponent from "./Investments";
 
 
 
 let mapStateToProps = (state) => {
     return {
-        commonUtilityState : state.commonUtilityState,
         investmentsPage: state.investmentsPage
     }
 }
@@ -16,6 +15,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const InventoryContainer = connect(mapStateToProps, mapDispatchToProps)(Investments)
+const InventoryContainer = connect(mapStateToProps, mapDispatchToProps)(InvestmentsWithDisableComponent)
 
 export default InventoryContainer;

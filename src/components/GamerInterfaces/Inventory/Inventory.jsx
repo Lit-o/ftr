@@ -1,9 +1,7 @@
-import {Redirect} from "react-router-dom";
+import {withModuleDisable} from "../../../hoc/withModuleDisable";
 
 
 const Inventory = (props) => {
-    if (props.commonUtilityState.isModuleInRecoveryDisable) {return <Redirect to={"/nf010722"} />}
-
     return (
         <div>
             <h2>Inventory</h2>
@@ -12,4 +10,6 @@ const Inventory = (props) => {
     )
 }
 
-export default Inventory;
+let InventoryWithDisableModule = withModuleDisable(Inventory)
+
+export default InventoryWithDisableModule;

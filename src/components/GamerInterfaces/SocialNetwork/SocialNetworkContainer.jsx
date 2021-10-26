@@ -17,7 +17,7 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.socialPage.totalUsersCount,
         currentPage: state.socialPage.currentPage,
         isFetching: state.socialPage.isFetching,
-        followingQueue: state.socialPage.followingQueue
+        followingQueue: state.socialPage.followingQueue,
     }
 }
 
