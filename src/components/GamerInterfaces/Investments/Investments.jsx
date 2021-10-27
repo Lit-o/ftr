@@ -1,4 +1,3 @@
-import {withModuleDisable} from "../../../hoc/withModuleDisable";
 
 const Investments = (props) => {
     return (
@@ -9,6 +8,5 @@ const Investments = (props) => {
     )
 }
 
-let InvestmentsWithDisableComponent = withModuleDisable(Investments)
 
-export default InvestmentsWithDisableComponent;
+export default Investments;

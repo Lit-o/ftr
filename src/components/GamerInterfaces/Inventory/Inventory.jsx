@@ -1,5 +1,3 @@
-import {withModuleDisable} from "../../../hoc/withModuleDisable";
-
 
 const Inventory = (props) => {
     return (
@@ -10,6 +8,4 @@ const Inventory = (props) => {
     )
 }
 
-let InventoryWithDisableModule = withModuleDisable(Inventory)
-
-export default InventoryWithDisableModule;
+export default Inventory;

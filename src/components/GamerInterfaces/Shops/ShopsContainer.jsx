@@ -1,5 +1,4 @@
 import {connect} from "react-redux";
-import Shops from "./Shops";
 import ShopsWithDisableComponent from "./Shops";
 
 
@@ -21,7 +20,6 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 let ShopsWithDisableComponentAndRedirectProps = connect(mapStateToPropsForRedirect) (ShopsWithDisableComponent)
-
 
 const ShopsContainer = connect(mapStateToProps, mapDispatchToProps)(ShopsWithDisableComponentAndRedirectProps)
 

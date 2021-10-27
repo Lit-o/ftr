@@ -1,5 +1,7 @@
 import {connect} from "react-redux";
-import InventoryWithDisableModule from "./Inventory";
+import {withModuleDisable} from "../../../hoc/withModuleDisable";
+import Inventory from "./Inventory";
+import {compose} from "redux";
 
 
 
@@ -15,6 +17,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const InventoryContainer = connect(mapStateToProps, mapDispatchToProps)(InventoryWithDisableModule)
-
-export default InventoryContainer;
+export default compose (
+    connect(mapStateToProps, mapDispatchToProps),
+    withModuleDisable
+) (Inventory)

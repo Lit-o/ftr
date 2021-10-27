@@ -78,3 +78,20 @@
     opacity: 1;
     right: -40px;
 }
+
+.main input {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 300px;
+}
+
+.status p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.status p:hover {
+    background-color: #282c34;
+}

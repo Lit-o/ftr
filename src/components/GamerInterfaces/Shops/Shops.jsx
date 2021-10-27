@@ -1,6 +1,4 @@
-import {Redirect} from "react-router-dom";
 import {withModuleDisable} from "../../../hoc/withModuleDisable";
-
 
 const Shops = (props) => {
     return (

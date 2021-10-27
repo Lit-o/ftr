@@ -1,5 +1,6 @@
 import style from './Character.module.css'
 import React from "react";
+import CharacterStatus from "./CharacterStatus/CharacterStatus";
 
 const Character = (props) => {
     let thoughtsResult = props.dataToCharacter.thoughts.map((el) =>  <p id={el.id} key={el.key}>{el.thought}</p>)
@@ -25,6 +26,7 @@ const Character = (props) => {
     return (
         <div className={style.main}>
             <h2>Character</h2>
+            <CharacterStatus status={"I don't want to set the world on fire"}/>
             <div className={style.charAttributes}>
                 <h3>Character attributes</h3>
                 <p>Agility : {props.dataToCharacter.characteristics.agility} </p>
@@ -34,6 +36,7 @@ const Character = (props) => {
             </div>
 
             <div className={style.hitPoints}>
+                <h3>Character state</h3>
                 <p>Hit Points Capacity : {props.dataToCharacter.HP.capacityHP}</p>
                 <p>Hit Points Current : {props.dataToCharacter.HP.currentHP}</p>
             </div>
