@@ -1,4 +1,4 @@
-import {addThoughtActionCreator, changeTextareaActionCreator} from "../../../redux/characterReducer";
+import {addThoughtActionCreator, changeTextareaActionCreator, updateStatusAC} from "../../../redux/characterReducer";
 import Character from "./Character";
 import {connect} from "react-redux";
 
@@ -16,6 +16,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         changeTextarea: (text) => {
             dispatch(changeTextareaActionCreator(text))
+        },
+        updateStatus: (value) => {
+            dispatch(updateStatusAC(value))
         }
     }
 }

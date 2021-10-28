@@ -26,7 +26,9 @@ const Character = (props) => {
     return (
         <div className={style.main}>
             <h2>Character</h2>
-            <CharacterStatus status={"I don't want to set the world on fire"}/>
+
+            <CharacterStatus status={props.dataToCharacter.status} updateStatus={props.updateStatus}/>
+
             <div className={style.charAttributes}>
                 <h3>Character attributes</h3>
                 <p>Agility : {props.dataToCharacter.characteristics.agility} </p>

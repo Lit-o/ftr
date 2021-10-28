@@ -1,5 +1,6 @@
 const ADD_THOUGHT = 'ADD-THOUGHT';
 const CHANGE_TEXTAREA = 'CHANGE-TEXTAREA';
+const UPDATE_STATUS = 'UPDATE_STATUS';
 
 
 
@@ -28,7 +29,8 @@ let initialState = {
         capacityMotivation: 10,
         currentMotivation: 7
     },
-    textarea: 'lorem'
+    textarea: 'lorem',
+    status: "I don't want to set the world on fire"
 }
 
 
@@ -74,13 +76,18 @@ const characterReducer = (state = initialState, action) => {
                 ...state,
                 textarea: action.textareaValue
             };
+        case UPDATE_STATUS :
+            return {
+                ...state,
+                status: action.newStatusValue
+            }
         default:
             return state;
     }
 }
 
 export const addThoughtActionCreator = () => ({type: ADD_THOUGHT});
-export const changeTextareaActionCreator = (text) =>
-    ({type: CHANGE_TEXTAREA, textareaValue: text});
+export const changeTextareaActionCreator = (text) => ({type: CHANGE_TEXTAREA, textareaValue: text});
+export const updateStatusAC = (newStatusValue) => ({type: UPDATE_STATUS, newStatusValue })
 
 export default characterReducer;
