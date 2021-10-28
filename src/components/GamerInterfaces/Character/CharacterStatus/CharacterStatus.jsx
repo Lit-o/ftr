@@ -6,7 +6,8 @@ class CharacterStatus extends React.Component {
         editMode: false
     }
 
-    activateEditMode() {
+    //специально объявил метод в двух видах ради учебных целей
+    activateEditMode = () => {
         this.setState({
             editMode: true,
         })
@@ -24,7 +25,7 @@ class CharacterStatus extends React.Component {
                 {/*Короткая запись одинарного условия и одинарного следствия*/}
                 {!this.state.editMode &&
                     <div>
-                        <p onClick={this.activateEditMode.bind(this)}>{this.props.status}</p>
+                        <p onClick={this.activateEditMode}>{this.props.status}</p>
                     </div>
                 }
                 {this.state.editMode &&
