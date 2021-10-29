@@ -104,6 +104,11 @@
 // }
 
 
+// let hookState = useState(true);
+// let editMode = hookState[0];
+// let setEditModeFunk = hookState[1];
+// аналогичная, сокращенная запись
+// let [editMode, setEditModeFunk] = useState(true);
 
 
 

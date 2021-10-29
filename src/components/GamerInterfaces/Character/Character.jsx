@@ -1,6 +1,7 @@
 import style from './Character.module.css'
 import React from "react";
 import CharacterStatus from "./CharacterStatus/CharacterStatus";
+import CharacterStatusWithHooks from "./CharacterStatus/CharacterStatusWithHooks";
 
 const Character = (props) => {
     let thoughtsResult = props.dataToCharacter.thoughts.map((el) =>  <p id={el.id} key={el.key}>{el.thought}</p>)
@@ -27,7 +28,7 @@ const Character = (props) => {
         <div className={style.main}>
             <h2>Character</h2>
 
-            <CharacterStatus status={props.dataToCharacter.status} updateStatus={props.updateStatus}/>
+            <CharacterStatusWithHooks status={props.dataToCharacter.status} updateStatus={props.updateStatus}/>
 
             <div className={style.charAttributes}>
                 <h3>Character attributes</h3>

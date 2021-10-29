@@ -42,13 +42,14 @@ class CharacterStatus extends React.Component {
             )
         }
 
-        console.log("c did update")
     }
 
 
+
     render() {
+        let hasError = false
         return (
-            <div className={style.status}>
+            <div className={style.status + " " + (hasError ? style.error : "")}>
                 <h3>Status</h3>
                 {/*Короткая запись одинарного условия и одинарного следствия*/}
                 {!this.state.editMode &&
