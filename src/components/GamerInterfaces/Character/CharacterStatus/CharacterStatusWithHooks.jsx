@@ -1,5 +1,5 @@
 import style from "../Character.module.css";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 const CharacterStatusWithHooks = (props) => {
 
@@ -22,6 +22,10 @@ const CharacterStatusWithHooks = (props) => {
     let onStatusChange = (e) => {
         setStatus(e.currentTarget.value);
     }
+
+    useEffect( () => {
+        setStatus(props.status);
+    }, [props.status])
 
     let hasError = false
     return (
