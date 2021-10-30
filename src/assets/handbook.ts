@@ -118,81 +118,81 @@
 //             avaURL: null
 //         },
 
-//
-// let a: string;
-// a = "bobbku";
-//
-// //можно присвоить несколько типов
-// let b: number | null = 10;
-//
-// // generic <> уточнения данных
-// let names: Array<string> = ["Sveta", "Jija", "Cok"];
-// let names2: string [] = ["Svetal", "Jija", "Cok"];
-// alert(names[2].toUpperCase())
-//
-// //можно создавать свой строгий тип, после двоеточия объявляем свой тип
-// let sex: 'male' | 'female';
-//
-// //в тс есть типы и интерфейсы, Димыч рекомендит типы, а интерфейсы больше для ооп
-//
-// type AddressType = {
-//     //Вопросительный знак значит, что это свойство не обязательно
-//     city?: string
-//     country: string
-// }
-//
-// type WhatIWantType = {
-//     sayHello: Function
-//     name: string
-//     age: number
-//     isCool: true
-//     address: AddressType | null
-// }
-//
-// let user: WhatIWantType = {
-//     sayHello() {
-//         console.log("Hello")
-//     },
-//     name: "Bob",
-//     age: 22,
-//     isCool: true,
-//     address: {
-//         // city: "One",
-//         country: "Two"
-//     }
-// }
-// // any - тип любой, но иногда нужно, когда быстро нужно провести интеграцию
-// // на ТС а искать какой тип сложно и потом затипизировать когда поймешь какой тип выбрать
-// // неявная типизация на ходу, при простых обработчиках норм как здесь
-// let summ = (a: number, b: any) => {
-//     return a + b
-// }
-//
-// summ(10, Number("11"))
-//
-// //объявили тип функции, которая не return ничего и в параметрах name с типом string
-// type sayMyName = (name: string) => void
-//
-//     type sayTheyName = (name: string) => string
-//
-// //произойдет неявная типизация
-// let initialState = {
-//     name: null as string | null,
-//     age: null as number | null,
-//     yep: null as boolean | null,
-//     adresses: [] as Array<AdressType>
-// }
-// //неявную типизацию сможем експортировать вот так
-// export type initialStateType = typeof initialState
-//
-//
-//
-// const SOME_ACTION = "APP/SOME/SOME_ACTION"
-// type SOME_ACTION_TYPE = {
-//     type: typeof SOME_ACTION
-//     id:number
-// }
-// let action: SOME_ACTION_TYPE = {
-//     type: SOME_ACTION,
-//     id: 12
-// }
+
+let a: string;
+a = "bobbku";
+
+//можно присвоить несколько типов
+let b: number | null = 10;
+
+// generic <> уточнения данных
+let names: Array<string> = ["Sveta", "Jija", "Cok"];
+let names2: string [] = ["Svetal", "Jija", "Cok"];
+alert(names[2].toUpperCase())
+
+//можно создавать свой строгий тип, после двоеточия объявляем свой тип
+let sex: 'male' | 'female';
+
+//в тс есть типы и интерфейсы, Димыч рекомендит типы, а интерфейсы больше для ооп
+
+type AddressType = {
+    //Вопросительный знак значит, что это свойство не обязательно
+    city?: string
+    country: string
+}
+
+type WhatIWantType = {
+    sayHello: Function
+    name: string
+    age: number
+    isCool: true
+    address: AddressType | null
+}
+
+let user: WhatIWantType = {
+    sayHello() {
+        console.log("Hello")
+    },
+    name: "Bob",
+    age: 22,
+    isCool: true,
+    address: {
+        // city: "One",
+        country: "Two"
+    }
+}
+// any - тип любой, но иногда нужно, когда быстро нужно провести интеграцию
+// на ТС а искать какой тип сложно и потом затипизировать когда поймешь какой тип выбрать
+// неявная типизация на ходу, при простых обработчиках норм как здесь
+let summ = (a: number, b: any) => {
+    return a + b
+}
+
+summ(10, Number("11"))
+
+//объявили тип функции, которая не return ничего и в параметрах name с типом string
+type sayMyName = (name: string) => void
+
+    type sayTheyName = (name: string) => string
+
+//произойдет неявная типизация
+let initialState = {
+    name: null as string | null,
+    age: null as number | null,
+    yep: null as boolean | null,
+    // adresses: [] as Array<AdressType>
+}
+//неявную типизацию сможем експортировать вот так
+export type initialStateType = typeof initialState
+
+
+
+const SOME_ACTION = "APP/SOME/SOME_ACTION"
+type SOME_ACTION_TYPE = {
+    type: typeof SOME_ACTION
+    id:number
+}
+let action: SOME_ACTION_TYPE = {
+    type: SOME_ACTION,
+    id: 12
+}

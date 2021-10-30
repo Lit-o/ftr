@@ -1,8 +1,21 @@
-const ADD_TO_FAVOURITE = 'ADD_TO_FAVOURITE'
+const ADD_TO_FAVOURITE = 'ADD/ADD_TO_FAVOURITE'
 
-let initialState = {
+export type initialStateType = {
+    isModuleInRecoveryDisable: boolean
+    stories: Array<storyType>
+}
+
+export type storyType = {
+    id: number
+    isFavourite: boolean
+    sharelinkURL: number
+    story: string
+    time: string
+    date: string
+}
+
+let initialState: initialStateType = {
     isModuleInRecoveryDisable: false,
-
     stories: [
         {
             id: 0,
@@ -23,7 +36,7 @@ let initialState = {
     ]
 }
 
-const historyReducer = (state = initialState, action) => {
+const historyReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case ADD_TO_FAVOURITE :
             return {
