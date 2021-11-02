@@ -9,7 +9,6 @@ function App() {
     return (
         <div className="Main">
             <Header/>
-
             <div className="App_body_wrapper">
                 <Nav/>
                 <GamerInterfaces/>
