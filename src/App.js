@@ -10,7 +10,6 @@ function App() {
         <div className="Main">
             <Header/>
 
-
             <div className="App_body_wrapper">
                 <Nav/>
                 <GamerInterfaces/>
