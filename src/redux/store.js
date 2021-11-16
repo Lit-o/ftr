@@ -8,6 +8,7 @@ import inventoryReducer from "./inventoryReducer";
 import shopsReducer from "./shopsReducer";
 import investmentsReducer from "./investmentsReducer";
 
+
 let reducers = combineReducers({
     characterPage: characterReducer,
     inventoryPage: inventoryReducer,

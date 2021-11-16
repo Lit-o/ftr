@@ -1,4 +1,3 @@
-
 const Investments = (props) => {
     return (
         <div>
@@ -7,6 +6,5 @@ const Investments = (props) => {
         </div>
     )
 }
-
 
 export default Investments;

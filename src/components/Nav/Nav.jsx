@@ -1,6 +1,7 @@
 import style from './Nav.module.css'
 import {NavLink} from "react-router-dom";
 
+
 const Nav = () => {
     return (
         <nav className={style.nav}>
@@ -16,4 +17,5 @@ const Nav = () => {
         </nav>
     )
 }
+
 export default Nav

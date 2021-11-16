@@ -1,5 +1,6 @@
 import {socialAPI} from "../api/api";
 
+
 const MARK = 'MARK';
 const UNMARK = 'UNMARK';
 const SET_USERS = 'SET-USERS';

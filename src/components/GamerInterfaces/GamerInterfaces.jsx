@@ -10,7 +10,6 @@ import ShopsContainer from "./Shops/ShopsContainer";
 import InvestmentsContainer from "./Investments/InvestmentsContainer";
 
 
-
 const GamerInterfaces = () => {
 
     let Character = () => <CharacterContainer/>
@@ -20,8 +19,6 @@ const GamerInterfaces = () => {
     let Inventory = () => <InventoryContainer />
     let Shops = () => <ShopsContainer />
     let Investments = () => <InvestmentsContainer />
-
-
 
     return (
         <div className={style.main}>

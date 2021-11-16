@@ -2,6 +2,7 @@
 import characterReducer from "./characterReducer";
 import historyReducer from "./historyReducer"
 
+
 let store = {
     _state: {
         characterPage: {

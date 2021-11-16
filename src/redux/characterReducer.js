@@ -3,7 +3,6 @@ const CHANGE_TEXTAREA = 'CHANGE-TEXTAREA';
 const UPDATE_STATUS = 'UPDATE_STATUS';
 
 
-
 let initialState = {
     thoughts: [
         {id: 0, key: 0, thought: "Maybe I should think about something? Huh..."}

@@ -1,6 +1,5 @@
 import style from './Character.module.css'
 import React from "react";
-import CharacterStatus from "./CharacterStatus/CharacterStatus";
 import CharacterStatusWithHooks from "./CharacterStatus/CharacterStatusWithHooks";
 
 const Character = (props) => {

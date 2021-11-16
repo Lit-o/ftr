@@ -3,6 +3,7 @@ import HistoryPost from "./HistoryPost/HistoryPost";
 import React from "react";
 import {Redirect} from "react-router-dom";
 
+
 const History = (props) => {
     let historyPosts = props.historyPage.stories.map((el) =>
         <HistoryPost

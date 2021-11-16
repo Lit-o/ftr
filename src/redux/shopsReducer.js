@@ -1,4 +1,3 @@
-
 let initialState = {
     isEmpty: true,
     moduleRecoveryTime: "about a several month",

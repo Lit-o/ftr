@@ -4,7 +4,6 @@ import Investments from "./Investments";
 import {compose} from "redux";
 
 
-
 let mapStateToProps = (state) => {
     return {
         investmentsPage: state.investmentsPage

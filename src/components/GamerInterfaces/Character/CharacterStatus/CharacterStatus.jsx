@@ -43,9 +43,7 @@ class CharacterStatus extends React.Component {
         }
 
     }
-
-
-
+    
     render() {
         let hasError = false
         return (

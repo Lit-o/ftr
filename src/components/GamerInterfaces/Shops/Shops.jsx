@@ -1,5 +1,6 @@
 import {withModuleDisable} from "../../../hoc/withModuleDisable";
 
+
 const Shops = (props) => {
     return (
         <div>
@@ -10,6 +11,5 @@ const Shops = (props) => {
 }
 
 let ShopsWithDisableComponent = withModuleDisable(Shops)
-
 
 export default ShopsWithDisableComponent;

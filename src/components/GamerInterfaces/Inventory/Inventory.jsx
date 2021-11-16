@@ -1,4 +1,3 @@
-
 const Inventory = (props) => {
     return (
         <div>

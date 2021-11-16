@@ -4,7 +4,6 @@ import Inventory from "./Inventory";
 import {compose} from "redux";
 
 
-
 let mapStateToProps = (state) => {
     return {
         inventoryPage: state.inventoryPage

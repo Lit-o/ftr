@@ -3,7 +3,6 @@ import {addThoughtActionCreator, changeTextareaActionCreator} from "../../../red
 import History from "./History";
 
 
-
 let mapStateToProps = (state) => {
     return {
         historyPage: state.historyPage,
