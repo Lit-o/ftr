@@ -9,23 +9,37 @@ let initialState = {
     ],
     characteristics: {
         strength: 1,
+        strengthProgress: 0,
+        strengthProgressCap: 100,
+
         agility: 1,
+        agilityProgress: 0,
+        agilityProgressCap: 100,
+
         perception: 1,
+        perceptionProgress: 0,
+        perceptionProgressCap: 100,
+
         intelligence: 1,
-        accuracy: 1,
+        intelligenceProgress: 0,
+        intelligenceProgressCap: 100,
+
         charisma: 1,
+        charismaProgress: 0,
+        charismaProgressCap: 100,
+
         freeCharPoints: 5
     },
     HP: {
-        capacityHP: 10,
+        capacityHP: 8,
         currentHP: 7
     },
     energy: {
-      capacityEnergy: 10,
+      capacityEnergy: 8,
       currentEnergy: 7
     },
     motivation: {
-        capacityMotivation: 10,
+        capacityMotivation: 8,
         currentMotivation: 7
     },
     textarea: 'lorem',
