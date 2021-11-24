@@ -17,8 +17,16 @@ const CharacterCharacteristics = (props) => {
             <p>Perception : {props.characteristicsData.perception} </p>
             <p>Intelligence : {props.characteristicsData.intelligence} </p>
             <p>Charisma : {props.characteristicsData.charisma} </p>
-            <p style={aquaStyle}>Free Char Points : {props.characteristicsData.freeCharPoints} <strong
-                data-tooltip="What the world gave you at birth">?</strong></p>
+
+            {/*мне кажется изящное решение когда в стейте будет 0, !!0 переведет значение в false
+             и этот блок не будет отображаться*/}
+            {!!props.characteristicsData.freeCharPoints &&
+                <div>
+                    <p style={aquaStyle}>Free Char Points : {props.characteristicsData.freeCharPoints} <strong
+                        data-tooltip="What the world gave you at birth">?</strong></p>
+
+                </div>
+            }
         </div>
     )
 }
