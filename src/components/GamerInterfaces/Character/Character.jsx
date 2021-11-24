@@ -1,7 +1,7 @@
 import style from './Character.module.css'
 import React from "react";
 import CharacterStatusWithHooks from "./CharacterStatus/CharacterStatusWithHooks";
-import CharacterAttributes from "./CharacterAttributes/CharacterAttributes";
+import CharacterCharacteristics from "./CharacterCharacteristics/CharacterCharacteristics";
 import CharacterState from "./CharacterState/CharacterState";
 
 const Character = (props) => {
@@ -23,7 +23,7 @@ const Character = (props) => {
             <h2 className="visuallyHidden">Character</h2>
 
             <CharacterStatusWithHooks status={props.dataToCharacter.status} updateStatus={props.updateStatus}/>
-            <CharacterAttributes attributesData={props.dataToCharacter.characteristics}/>
+            <CharacterCharacteristics characteristicsData={props.dataToCharacter.characteristics}/>
             <CharacterState stateData={props.dataToCharacter.characterState}/>
 
             <div className={style.charThoughts}>
