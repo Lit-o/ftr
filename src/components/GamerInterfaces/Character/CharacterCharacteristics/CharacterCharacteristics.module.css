@@ -1,4 +1,4 @@
-.charAttributes strong {
+.charCharacteristics strong {
     display: inline-block;
     width: 24px;
     height: 24px;
@@ -16,10 +16,10 @@
     cursor: help;
 }
 
-.charAttributes strong[data-tooltip] {
+.charCharacteristics strong[data-tooltip] {
     position: relative;
 }
-.charAttributes strong[data-tooltip]::after {
+.charCharacteristics strong[data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
     width: 220px;
@@ -33,7 +33,11 @@
     pointer-events: none;
     /*  pointer-events: none; запрещает потомку реагировать на ховер, только родитель будет отвечать за наведение*/
 }
-.charAttributes strong[data-tooltip]:hover::after {
+.charCharacteristics strong[data-tooltip]:hover::after {
     opacity: 1;
     right: -40px;
+}
+
+.charFreePoints button {
+    margin-bottom: 10px;
 }
