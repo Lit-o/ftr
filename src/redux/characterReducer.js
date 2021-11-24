@@ -30,18 +30,21 @@ let initialState = {
 
         freeCharPoints: 5
     },
-    HP: {
-        capacityHP: 8,
-        currentHP: 7
+    characterState: {
+        HP: {
+            capacityHP: 8,
+            currentHP: 7
+        },
+        energy: {
+            capacityEnergy: 8,
+            currentEnergy: 7
+        },
+        motivation: {
+            capacityMotivation: 8,
+            currentMotivation: 7
+        },
     },
-    energy: {
-      capacityEnergy: 8,
-      currentEnergy: 7
-    },
-    motivation: {
-        capacityMotivation: 8,
-        currentMotivation: 7
-    },
+
     textarea: 'lorem',
     status: "I don't want to set the world on fire"
 }

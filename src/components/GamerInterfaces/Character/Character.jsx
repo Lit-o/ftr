@@ -24,7 +24,7 @@ const Character = (props) => {
 
             <CharacterStatusWithHooks status={props.dataToCharacter.status} updateStatus={props.updateStatus}/>
             <CharacterAttributes attributesData={props.dataToCharacter.characteristics}/>
-            <CharacterState stateData={props.dataToCharacter}/>
+            <CharacterState stateData={props.dataToCharacter.characterState}/>
 
             <div className={style.charThoughts}>
                 <h3>My thoughts:</h3>
