@@ -60,6 +60,9 @@
     line-height: 16px;
     border-top: 1px solid transparent;
 }
+.charItems button:hover {
+    border-top: 1px solid transparent;
+}
 
 .charItems li div {
     width: 100%;
