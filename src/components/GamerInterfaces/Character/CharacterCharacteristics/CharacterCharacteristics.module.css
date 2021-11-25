@@ -41,3 +41,48 @@
 .charFreePoints button {
     margin-bottom: 10px;
 }
+
+.charItems li {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+    justify-content: space-between;
+}
+
+.charItems button {
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    height: 20px;
+    line-height: 16px;
+    border-top: 1px solid transparent;
+}
+
+.charItems li div {
+    width: 100%;
+    padding: 10px;
+    padding-top: 0;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    border-bottom: 1px solid aqua;
+    border-right: 1px solid aqua;
+
+    justify-content: space-between;
+
+    transition: border 0.4s ease;
+}
+
+.charItems li:hover div{
+    border-bottom: 1px solid gold;
+    border-right: 1px solid gold;
+}
+
+.charItems li div:hover{
+    border-bottom: 1px solid aqua;
+    border-right: 1px solid aqua;
+}

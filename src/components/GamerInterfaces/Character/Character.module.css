@@ -25,6 +25,8 @@
     font-size: 16px;
     border: 1px solid aqua;
     background-color: inherit;
+
+    transition: border 0.4s ease;
 }
 
 .main button:hover {
