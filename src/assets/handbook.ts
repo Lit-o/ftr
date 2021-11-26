@@ -196,3 +196,35 @@ let action: SOME_ACTION_TYPE = {
     type: SOME_ACTION,
     id: 12
 }
+
+
+//RANDOM CASES MECHANIC----RANDOM CASES MECHANIC----RANDOM CASES MECHANIC----RANDOM CASES MECHANIC//RANDOM CASES MECHANIC----RANDOM CASES MECHANIC----RANDOM CASES MECHANIC----RANDOM CASES MECHANIC
+
+export const libraryCases = {
+    restCases: [
+        {
+            impact: 20,
+            story: 'Вы почему-то нервничали и спали плохо'
+        },
+        {
+            impact: 35,
+            story: 'Вы спали обычно'
+        },
+        {
+            impact: 70,
+            story: 'Выспались хорошенько'
+        }
+    ]
+}
+
+// case SLEEP:
+//     let selectedCase = libraryCases.restCases[Math.floor(Math.random()*libraryCases.restCases.length)]
+// return {
+//     ...state,
+//     currentEnergy: (state.currentEnergy + selectedCase.impact > state.energyMax)
+//         ? (state.currentEnergy = state.energyMax)
+//         : (state.currentEnergy = state.currentEnergy + selectedCase.impact),
+//     lastCase: selectedCase.story
+// }
+
+//RANDOM CASES MECHANIC----RANDOM CASES MECHANIC----RANDOM CASES MECHANIC----RANDOM CASES MECHANIC
