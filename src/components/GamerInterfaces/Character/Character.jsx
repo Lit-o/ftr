@@ -10,6 +10,7 @@ const Character = (props) => {
     let sendThought = () => {
         props.sendThought()
     }
+    console.log()
     let sendTextarea = (e) => {
         // let text = thoughtsTextarea.current.value;
         // --- отказываемся от ref thoughtsTextarea в пользу e (event)
