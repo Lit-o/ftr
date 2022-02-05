@@ -28,3 +28,12 @@
 const isChance = percent => (Math.floor(Math.random() * 100) + 1) <= percent
 
 console.log(isChance(90))
+
+
+// lvl up
+// (n*(n-1)/2) * 1000 ОО
+
+const lvlCup = (lvl) => {
+    return (lvl*(lvl-1)/2) * 100
+}
+console.log(lvlCup(5))
